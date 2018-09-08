@@ -2,7 +2,7 @@ baseurl = "https://taceywong.github.io/"
 title = "Tacey"
 theme = "vec"
 languageCode = "en-us"
-paginate = 10
+paginate = 20
 disqusShortname = ""
 googleAnalytics = ""
 
@@ -26,14 +26,17 @@ googleAnalytics = ""
     url = "/resume"
 
 [params]
-  Keywords = "key, 关键字, キーワード"
-  Description = "There are some words to describe your site"
+  Keywords = "Tacey Wong,Seeking,Chasing,IT,Programing,Coding"
+  Description = "Tacey's Blog:Seeking/求索/Chasing"
   Avatar = "img/avatar.png"
   SelfIntro = "Seeking/求索/Chasing"
   Email = "xinyong.wang@qq.com"
 
   GithubID = "TaceyWong"
-  TwitterID = "Your Twitter ID"
-  FacebookID = "Your Facebook ID"
-  LinkedInID = "Your LinkedIn ID"
-  GoogleplusID = "Your Googleplus ID"
+  TwitterID = "tacey_w"
+  FacebookID = "Tacey-Wong"
+  LinkedInID = "tacey-wong-82b53487"
+  GoogleplusID = "+王新勇"
+  Weibo = "iTacey"
+  QQ = "N/A"
+  WeChat = "N/A"

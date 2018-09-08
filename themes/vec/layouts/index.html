@@ -30,7 +30,16 @@
         <a href="https://github.com/{{.}}" title="GitHub"><i class="fab fa-github-square" aria-hidden="true"></i></a>
         {{ end }}
         {{ with .Site.Params.LinkedInID }}
-        <a href="http://linkedin.com/in/{{.}}" title="LinkedIn"><i class="fab fa-linkedin-square" aria-hidden="true"></i></a>
+        <a href="http://linkedin.com/in/{{.}}" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+	{{ end }}
+	{{ with .Site.Params.Weibo }}
+        <a href="https://www.weibo.com/{{.}}" title="LinkedIn"><i class="fab fa-weibo" aria-hidden="true"></i></a>
+        {{ end }}
+	{{ with .Site.Params.WeChat }}
+        <a href="{{.}}" title="LinkedIn"><i class="fab fa-weixin" aria-hidden="true"></i></a>
+        {{ end }}
+	{{ with .Site.Params.QQ }}
+        <a href="{{.}}" title="LinkedIn"><i class="fab fa-qq" aria-hidden="true"></i></a>
         {{ end }}
 
       </figcaption>
