@@ -1,0 +1,13 @@
+{{ if .Site.Params.Email }}
+<hr />
+<div id="formspree" class='formspree'>
+  <h2>联系我/CONTACT ME</h2>
+  <form action="https://formspree.io/{{ .Site.Params.Email }}" method="POST">
+    <input type="text" name="_gotcha" style="display:none" />
+    <input type="hidden" name="subject" value="comment to: {{ .Title }}">
+    <input type="email" name="email" placeholder="你的email地址/Your email" required>
+    <textarea name="message" placeholder="你的消息/Your message" rows=5 required></textarea>
+    <button type="submit">发送/Send</button>
+  </form>
+</div>
+{{ end }}

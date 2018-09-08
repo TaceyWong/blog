@@ -1,0 +1,39 @@
+baseurl = "https://taceywong.github.io/"
+title = "Tacey"
+theme = "vec"
+languageCode = "en-us"
+paginate = 10
+disqusShortname = ""
+googleAnalytics = ""
+
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "post:博文"
+    weight = 3
+    url = "/post"
+  [[menu.main]]
+    name = "tags:标签"
+    weight = 2
+    url = "/tags"
+  [[menu.main]]
+    name = "categories:分类"
+    weight = 1
+    url = "/categories"
+  [[menu.main]]
+    name = "resume:简历"
+    weight = 0
+    url = "/resume"
+
+[params]
+  Keywords = "key, 关键字, キーワード"
+  Description = "There are some words to describe your site"
+  Avatar = "img/avatar.png"
+  SelfIntro = "Seeking/求索/Chasing"
+  Email = "xinyong.wang@qq.com"
+
+  GithubID = "TaceyWong"
+  TwitterID = "Your Twitter ID"
+  FacebookID = "Your Facebook ID"
+  LinkedInID = "Your LinkedIn ID"
+  GoogleplusID = "Your Googleplus ID"
