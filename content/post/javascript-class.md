@@ -1,7 +1,7 @@
 +++
 
 title = "Javascript实现类的几种方法"
-date = 2018-09-23T14:01:11+08:00
+date = 2018-09-18T14:01:11+08:00
 toc = true
 tags = ["Javascript"]
 categories = ["Javascript"]

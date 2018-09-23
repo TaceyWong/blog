@@ -2,8 +2,8 @@
 title = "Javascript面向对象编程"
 date = 2018-09-15T13:35:28+08:00
 toc = true
-tags = ["programming"]
-categories = ["programming"]
+tags = ["Javascript","面向对象"]
+categories = ["Javascript"]
 banner = "img/avatar.png"
 author = "Tacey Wong"
 +++
