@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-3-三思而后行：前期准备 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#架构的典型组成部分">架构的典型组成部分</a></li>
+<li><a href="#要点">要点</a></li>
+<li><a href="#核对表">核对表</a>
+<ul>
+<li><a href="#架构核对表">架构核对表</a>
+<ul>
+<li><a href="#针对各架构主题">针对各架构主题</a></li>
+<li><a href="#架构的总体质量">架构的总体质量</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-3-%E4%B8%89%E6%80%9D%E8%80%8C%E5%90%8E%E8%A1%8C%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87/">《代码大全》阅读笔记-3-三思而后行：前期准备</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<blockquote>
+<p>问题定义只定义了问题是什么，而不涉及任何可能的解决方案</p>
+
+<p>如果没有好的需求，你可能对问题有总体的把握，但却没有集中问题的特定方面</p>
+
+<p>需求像水。如果冻结了，就容易在上面开展建设 ——无名氏</p>
+
+<p>软件架构是软件设计的高层部分，适用于支撑更细节的设计的框架。</p>
+
+<p>离开了良好的软件架构，你可能瞄准了正确的问题，但却使用了错误的解决方案。也许完全不可能有成功的构建</p>
+</blockquote>
+
+<h2 id="架构的典型组成部分">架构的典型组成部分</h2>
+
+<ul>
+<li>程序组织</li>
+<li>主要的类 2/8原则</li>
+<li>数据设计</li>
+<li>业务规则</li>
+<li>用户界面设计</li>
+<li>资源管理</li>
+<li>安全性（数据库连接、线程、句柄等）</li>
+<li>性能</li>
+<li>可伸缩性</li>
+<li>互用性</li>
+<li>国际化、本地化</li>
+<li>输入输出</li>
+<li>错误处理</li>
+<li>容错性</li>
+<li>架构的可行性</li>
+<li>过度工程</li>
+<li>关于买和 造的决策</li>
+<li>关于复用的决策</li>
+<li>变更策略</li>
+<li>架构的总体质量</li>
+</ul>
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>构建活动的准备工作的根本目标在于降低风险。要确认你的准备活动是在降低风险，而非增加风险</li>
+<li>如果你想开发高质量的软件，软件开发过程必须由始至终关注质量。在线木初期关注质量，对产品质量的正面影响比在项目默契关注质量的一项要大</li>
+<li>程序员的一部分工作是教育老板和合作者，告诉他们软件开发过程，包括在开始编程之前进行充分准备的重要性</li>
+<li>你所从事的软件项目的类型对构建活动的前期准备有重大影响——许多项目应该是高度迭代的，某些应该是序列式的</li>
+<li>如果没有明确的问题定义，那么你可能会在构建期间解决错误的问题</li>
+<li>如果没有做完良好的需求分析工作，你可能没有察觉待解决的问题的重要细节。如果需求变更发生在构建之后的阶段，其代价是“在项目早期更改需求”的20-100倍。因此在开始变成之前，你要确认“需求“已经到位了</li>
+<li>如果没有做完良好的架构设计，你可能会在构建期间用错误的方法解决正确的问题。架构变更的代价随着“为错误的架构编写的代码数量”增加而增加，因此，也要确认“”架构“”已经到位了。</li>
+<li>理解项目的前期准备所采用的方法，并相应地选择构建方法。</li>
+</ul>
+
+<h2 id="核对表">核对表</h2>
+
+<h3 id="架构核对表">架构核对表</h3>
+
+<h4 id="针对各架构主题">针对各架构主题</h4>
+
+<ul>
+<li>程序的整体组织结构是否清晰？是否包含一个良好的架构全局观（及其理由）</li>
+<li>是否确定了主要得到构造快（包括每个构造快的职责范围及与其他构造快的接口）</li>
+<li>是否明确涵盖了“需求”中所列出的所有功能（每个功能对应的构造快不太多也不太少）</li>
+<li>是否描述并论证了那些最关键的类</li>
+<li>是否描述并论证了数据设计</li>
+<li>是否详细定义了数据库的组织结构和内容</li>
+<li>是否指出了所用关键的业务规则，并描述其对系统的影响？</li>
+<li>是否描述了用户界面设计的策略‘</li>
+<li>是否将用户界面模块化，使界面的免耕不会影响程序其余部分</li>
+<li>是否描述并论证了处理I/O的策略</li>
+<li>是否估算了稀缺资源（如县城、数据库连接、句柄、网络带框等）的使用量，是否描述并论证了资源管理的策略</li>
+<li>是否描述了架构的安全需求</li>
+<li>架构是否为每个类、每个子系统、每个模块功能域提出空间与时间预算</li>
+<li>架构是否描述了如何达到可伸缩性</li>
+<li>架构是否关注互操作性</li>
+<li>是否描述了国际化本地化的策略</li>
+<li>是否提供了一套内聚的错误处理策略</li>
+<li>是否规定了容错的方法</li>
+<li>是否证实了系统各个部分的技术可行性</li>
+<li>是否详细描述了过度工程的方法</li>
+<li>是否包含了必要的 买 vs. 造的决策</li>
+<li>架构是否描述了如何加工复用的代码，使之符合其他架构目标？</li>
+<li>是否将架构设计得能够适应和可能出现的变更</li>
+<li></li>
+</ul>
+
+<h4 id="架构的总体质量">架构的总体质量</h4>
+
+<ul>
+<li>架构是否解决了全部的需求</li>
+<li>有没有那个部分是过度架构或欠架构？是否明确宣布了在这方面的预期指标</li>
+<li>整个架构是否在概念上协调一致</li>
+<li>顶层设计是否独立于用作实现它的机器和语言</li>
+<li>是否说明了所有主要的决策和动机</li>
+<li>你，作为一名实现该系统的程序员，是否对这个架构感觉良好？</li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-2-%E7%94%A8%E9%9A%90%E5%96%BB%E6%9D%A5%E6%9B%B4%E5%85%85%E5%88%86%E5%9C%B0%E7%90%86%E8%A7%A3%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/"> 《代码大全》阅读笔记-2-用隐喻来更充分地理解软件开发 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-4-%E5%85%B3%E9%94%AE%E7%9A%84%E6%9E%84%E5%BB%BA%E5%86%B3%E7%AD%96/"> 《代码大全》阅读笔记-4-关键的“构建”决策 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>函数式编程 on Tacey</title>
+    <link>https://taceywong.github.io/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
+    <description>Recent content in 函数式编程 on Tacey</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Sep 2018 13:35:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://taceywong.github.io/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Javascript函数式编程</title>
+      <link>https://taceywong.github.io/post/javascript-functional/</link>
+      <pubDate>Sat, 22 Sep 2018 13:35:28 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/post/javascript-functional/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

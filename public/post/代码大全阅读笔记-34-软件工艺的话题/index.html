@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-34-软件工艺的话题 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-34-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E8%89%BA%E7%9A%84%E8%AF%9D%E9%A2%98/">《代码大全》阅读笔记-34-软件工艺的话题</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<ul>
+<li>在架构层将系统划分为多个子系统，以便让思绪在某段时间内能专注于系统的一小部分。</li>
+<li>仔细定义类接口，从而可以忽略类内部的工作机理。</li>
+<li>保持类接口的抽象性，从而不必记住不必要的细节。</li>
+<li>避免全局变量，因为它会大大增加总是需要兼顾的代码比例。</li>
+<li>避免深层次的继承，因为这样会耗费很大精力。</li>
+<li>避免深度嵌套的循环或条件判断，因为它们都能用简单的控制结构取代，后者占用较少的大脑资源。</li>
+<li>别用goto，因为它们引入了非顺序执行，多数人都不容易弄懂。</li>
+<li>小心定义错误处理的方法，不要滥用不同的错误处理技术。</li>
+<li>以系统的观点对待内置的异常机制，后者会成为非线性的控制结构。异常如果不受约束地使用，会和一样难以理解。</li>
+<li>不要让类过度膨胀，以致于占据整个程序。</li>
+<li>子程序应保持短小。</li>
+<li>使用清楚、不言自明的变量名，从而大脑不必费力记住诸如&rdquo;x代表账号下标，〕代表顾客下标，还是另有它意？”之类的细节。</li>
+<li>传递给子程序的参数数目应尽量少。更重要的是，只传递保持子程序接口抽象所必需的参数。</li>
+<li>用规范和约定来使大脑从记忆不同代码段的随意性、偶然性差异中解脱出来。</li>
+<li>只要有可能，一般情况下应避免“偶然性困难”</li>
+</ul>
+
+<p>计算机不关心你的代码是否好读。它更善于读二进制指令，而非高级语言的代码。编写可读性好的代码，是为了便于别人看懂。可读性对程序的以下方面都有正面影响：</p>
+
+<ul>
+<li>可理解性</li>
+<li>容易复查</li>
+<li>错误率</li>
+<li>调试</li>
+<li>可修改性</li>
+<li>开发时间</li>
+<li>上述因素之综合外在质量</li>
+</ul>
+
+<hr />
+
+<blockquote>
+<p>深八一门语言去编程，不浮于表面</p>
+</blockquote>
+
+<hr />
+
+<p><img src="https://images2018.cnblogs.com/blog/673170/201804/673170-20180406032837633-1939750387.png" alt="" /></p>
+
+<hr />
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li><strong>编程的主要目的之一是管理复杂性</strong></li>
+<li>编程过程对最终产品有深远影响</li>
+<li>合作开发要求团队成员之间进行广泛沟通，甚于同计算机的交互：而单人开发则是自我交流，其次才是计算机</li>
+<li>编程规范一旦滥用，只会雪上加霜：使用得当则能为开发环境带来良好机制，有助于管理复杂性和相互沟通</li>
+<li><strong>编程应基于问题域而非解决方案，这样便于复杂性管理</strong></li>
+<li>注意警告信息，将其作为编程的疑点，因为编程几乎是纯粹的智力活动</li>
+<li>开发时迭代次数越多，产品的质量越好</li>
+<li>墨守成规的方法有悖于高质量的软件开发。请将编程工具箱中填满各种编程工具，不断提高自己挑选合适工具的能力。</li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-33-%E4%B8%AA%E4%BA%BA%E6%80%A7%E6%A0%BC/"> 《代码大全》阅读笔记-33-个人性格(personal character) </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BF%AE%E7%82%BC%E4%B9%8B%E9%81%93%E5%A4%87%E5%BF%98%E6%B8%85%E5%8D%95/"> 《程序员修炼之道》备忘清单 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-15-使用条件语句 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#核对表-使用条件语句">核对表（使用条件语句）</a>
+<ul>
+<li><a href="#if-then-语句">if-then 语句</a></li>
+<li><a href="#if-then-else-if子句">if-then-else-if子句</a></li>
+<li><a href="#case语句">case语句</a></li>
+</ul></li>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-15-%E4%BD%BF%E7%94%A8%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/">《代码大全》阅读笔记-15-使用条件语句</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<h2 id="核对表-使用条件语句">核对表（使用条件语句）</h2>
+
+<h3 id="if-then-语句">if-then 语句</h3>
+
+<ul>
+<li>代码的正常路径清晰吗？</li>
+<li>if-then测试对等量分支的处理方式正确吗？</li>
+<li>使用了else字句并加以说明吗？</li>
+<li>else字句用的对吗？</li>
+<li>用对了if和else子句，即没把他们用反？</li>
+<li>需要执行的正常情况是位于if而不是else子句里吗？</li>
+</ul>
+
+<h3 id="if-then-else-if子句">if-then-else-if子句</h3>
+
+<ul>
+<li>把复杂的判断封装到布尔函数调用里了吗？</li>
+<li>先判断最常见的情况了吗？</li>
+<li>判断包含所有的情况吗？</li>
+<li>if-then-else-if是最佳实现吗？比case语句还要好吗？</li>
+</ul>
+
+<h3 id="case语句">case语句</h3>
+
+<ul>
+<li>case子句排序得有意义吗？</li>
+<li>每种情况的操作简单吗？必要的时候调用了其他子程序吗？</li>
+<li>case语句检测的时一个真实的变量，而不是一个只为了滥用case语句而刻意制造变量吗？</li>
+<li>默认子句用得合法吗？</li>
+<li>用默认子句来检测和报告意料之外的情况了吗？</li>
+<li>在C、C++或者Java里，每一个case的末尾都有一个break吗？</li>
+</ul>
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>对于简单的if-else语句，请注意if子句和else子句的顺序，特别是用它来处理大量错误的时候。要确认正常的情况是清晰的。</li>
+<li>对于if-then-else语句串和case语句，选择一种最利于阅读的排序</li>
+<li>为了捕捉错误，可以使用case语句中的default子句（默认子句），或者使用if-then-else语句串中的最后那个else子句</li>
+<li>各种控制结构并不是生来平等的。请为代码的每个部分选用最合适的控制结构</li>
+</ul>
+
+<p>&mdash;&mdash;》表驱动</p>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-14-%E7%BB%84%E7%BB%87%E7%9B%B4%E7%BA%BF%E5%9E%8B%E4%BB%A3%E7%A0%81/"> 《代码大全》阅读笔记-14-组织直线型代码 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-16-%E6%8E%A7%E5%88%B6%E5%BE%AA%E7%8E%AF/"> 《代码大全》阅读笔记-16-控制循环 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

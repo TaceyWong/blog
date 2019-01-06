@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-19-一般控制问题 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#布尔">布尔</a></li>
+<li><a href="#嵌套">嵌套</a></li>
+<li><a href="#结构化编程">结构化编程</a></li>
+<li><a href="#复杂度">复杂度</a></li>
+<li><a href="#核对表-控制结构相关事宜">核对表（控制结构相关事宜）</a></li>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-19-%E4%B8%80%E8%88%AC%E6%8E%A7%E5%88%B6%E9%97%AE%E9%A2%98/">《代码大全》阅读笔记-19-一般控制问题</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<h2 id="布尔">布尔</h2>
+
+<blockquote>
+<p>除了最简单、要求语句按照顺序执行的控制结构之外，所有的控制结构都依赖于布尔表达式的求值</p>
+</blockquote>
+
+<p><img src="https://images2018.cnblogs.com/blog/673170/201804/673170-20180405165442960-994947669.png" alt="" /></p>
+
+<h2 id="嵌套">嵌套</h2>
+
+<p>减少嵌套层次的技术列表：</p>
+
+<ul>
+<li>重复判断一部分条件</li>
+<li>转换成if-then-else</li>
+<li>转换成case语句</li>
+<li>把深层嵌套的代码提取城单独的子程序</li>
+<li>使用对象和多态派分</li>
+<li>用状态变量重写代码</li>
+<li>用防卫子句来退出程序，从而使得代码的主要路径更为清晰</li>
+<li>使用异常</li>
+<li>完全重新设计深层嵌套的代码</li>
+</ul>
+
+<h2 id="结构化编程">结构化编程</h2>
+
+<p>结构化编程的核心思想：一个应用程序应该单一入口、单一出口。
+其中涉及到的关键词有：break,continue、throw、catch、return
+结构化编程的三个组成部分：顺序、选择、迭代</p>
+
+<h2 id="复杂度">复杂度</h2>
+
+<p><img src="https://images2018.cnblogs.com/blog/673170/201804/673170-20180405170322445-2045754735.png" alt="" /></p>
+
+<p><img src="https://images2018.cnblogs.com/blog/673170/201804/673170-20180405170406649-525408486.png" alt="" /></p>
+
+<h2 id="核对表-控制结构相关事宜">核对表（控制结构相关事宜）</h2>
+
+<ul>
+<li>表达式中用的时true和false而不是1、0吗？</li>
+<li>布尔值和true以及false作比较是隐式进行的吗？</li>
+<li>对数值作比较是显示进行的吗？</li>
+<li>有没有通过增加新的布尔变量、使用布尔函数和决策表来简化表达式？</li>
+<li>布尔表达式是肯定形式表达的吗？</li>
+<li>括号匹配吗？</li>
+<li>在需要用括号来明确的地方都是用了括号了吗？</li>
+<li>把逻辑表达式全括起来了吗？</li>
+<li>判断是按照数轴顺序编写的吗？</li>
+<li>如果适当的话。Java中的判断用的时a.equals(b)方式，而不是用a==b方式？</li>
+<li>空语句表述的明显吗？</li>
+<li>用重新判断部分条件、转换成if-then-else或case语句、或把嵌套代码独立成单独子程序、换用一种更面向对象的设计或者其他改进方法来简化嵌套语句？</li>
+<li>如果一个子程序的决策点超过10个，那么能提出不重新设计的理由吗？</li>
+</ul>
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>使布尔表达式简单可读，将非常有助于提高你的代码质量</li>
+<li>深层次的嵌套使得子程序变得难以理解。所幸的时，你可以相对容易的避免这么做</li>
+<li>结构化编程是一种简单并且仍然适用的思想：你可以通过把顺序、选择和循环三者组合起来而开发任何程序</li>
+<li>将复杂度降低到最低水平是编写高质量代码的关键</li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-18-%E8%A1%A8%E9%A9%B1%E5%8A%A8%E6%B3%95/"> 《代码大全》阅读笔记-18-表驱动法 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-20-%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%A6%82%E8%BF%B0/"> 《代码大全》阅读笔记-20-软件质量概述 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

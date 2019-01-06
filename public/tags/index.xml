@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Tacey</title>
+    <link>https://taceywong.github.io/tags/</link>
+    <description>Recent content in Tags on Tacey</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Sep 2018 21:49:20 +0200</lastBuildDate>
+    
+	<atom:link href="https://taceywong.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang</title>
+      <link>https://taceywong.github.io/tags/golang/</link>
+      <pubDate>Tue, 04 Sep 2018 21:49:20 +0200</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://taceywong.github.io/tags/javascript/</link>
+      <pubDate>Sat, 22 Sep 2018 13:35:28 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://taceywong.github.io/tags/programming/</link>
+      <pubDate>Tue, 04 Sep 2018 21:49:20 +0200</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://taceywong.github.io/tags/python/</link>
+      <pubDate>Wed, 04 Jul 2018 19:28:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web开发</title>
+      <link>https://taceywong.github.io/tags/web%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Wed, 20 Jun 2018 14:35:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/web%E5%BC%80%E5%8F%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>代码大全</title>
+      <link>https://taceywong.github.io/tags/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/</link>
+      <pubDate>Sun, 03 Apr 2016 14:34:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>写着玩</title>
+      <link>https://taceywong.github.io/tags/%E5%86%99%E7%9D%80%E7%8E%A9/</link>
+      <pubDate>Sun, 11 Oct 2015 21:08:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/%E5%86%99%E7%9D%80%E7%8E%A9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>函数式编程</title>
+      <link>https://taceywong.github.io/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Sat, 22 Sep 2018 13:35:28 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数据挖掘</title>
+      <link>https://taceywong.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/</link>
+      <pubDate>Wed, 07 Oct 2015 14:48:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>科普</title>
+      <link>https://taceywong.github.io/tags/%E7%A7%91%E6%99%AE/</link>
+      <pubDate>Sun, 04 Oct 2015 14:21:19 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/%E7%A7%91%E6%99%AE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>程序员修炼</title>
+      <link>https://taceywong.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BF%AE%E7%82%BC/</link>
+      <pubDate>Sun, 03 Apr 2016 14:35:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BF%AE%E7%82%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>编程珠玑续</title>
+      <link>https://taceywong.github.io/tags/%E7%BC%96%E7%A8%8B%E7%8F%A0%E7%8E%91%E7%BB%AD/</link>
+      <pubDate>Thu, 03 Jan 2019 14:35:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/%E7%BC%96%E7%A8%8B%E7%8F%A0%E7%8E%91%E7%BB%AD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>面向对象</title>
+      <link>https://taceywong.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Sat, 15 Sep 2018 13:35:28 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

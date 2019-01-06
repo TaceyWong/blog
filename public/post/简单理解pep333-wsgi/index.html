@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 简单理解PEP333-WSGI &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#wsgi概述">WSGI概述</a></li>
+<li><a href="#wsgi规范主要骨架">WSGI规范主要骨架</a>
+<ul>
+<li><a href="#web服务器规范">Web服务器规范：</a></li>
+<li><a href="#web应用-框架规范">Web应用/框架规范</a></li>
+<li><a href="#中间件规范">中间件规范：</a></li>
+</ul></li>
+<li><a href="#一个完整的wsgi应用运行样例">一个完整的WSGI应用运行样例</a></li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3pep333-wsgi/">简单理解PEP333-WSGI</a></h1>
+      <span class="post-date">Jun 20, 2018 </span>
+      <div class="post-content">
+        
+
+<p><strong>声明：这篇文章只是为了整体理解WSGI，会忽略很多细节，要详细了解请参看文后的参考资料</strong></p>
+
+<h2 id="wsgi概述">WSGI概述</h2>
+
+<p>WSGI全称是Python Web Server Gateway Interface（Python Web服务网关接口）仅针对名字可以做出一下总结：</p>
+
+<ul>
+<li>1、<strong>Python</strong> Web Server Gateway Interface：这个规范是针对Python的</li>
+<li>2、Python <strong>Web Server</strong> Gateway Interface：这个规范是针对Web服务相关的</li>
+<li>3、Python Web Server <strong>Gateway</strong> Interface：这个规范是针对服务网关处的</li>
+<li>4、Python Web Server Gateway <strong>Interface</strong>：这个规范是一种接口定义，不是具体实现</li>
+</ul>
+
+<p>上面这样按照字面文本切分来理解也许是错的，但是在这里用来梳理理解我认为还是可以的。首先条目1、2、4应该是没问题,比较难理解的是3。3比较难理解是因为在我们的日常学习、开发的经历中，gateway/网关这一个词的准确指代是不明确、不固定的，这个词非常笼统与抽象，业务逻辑上集束处可以被成为网关，协议转换处可以被成为网关，权限分层处可以被称为网关……在基础的HTTP架构里，网关原本是用于称呼协议代理转换的那一部分，比如我们平常通过网页首发QQ邮件，浏览器后服务商后台进行通讯使用的是HTTP（S）协议，可e-mail常规协议是smtp、pop3这些，所以在中间一般经历了HTTP（S）到stmp等协议的转换，这一部分就是传统上基于HTTP服务架构中的网关。那么WSGI中的网关是什么意思呢？是不是协议转换？答案是否定的。在WSGI中所谓的网关是Web服务器与Web应用之间的衔接处，他使用的是类CGI之中网关的意思，就是Web服务器和动态Web程序之间的衔接。静态Web站点需要的软件程序只有Web服务器，Web服务器对文件系统进行相应的映射提供静态资源服务（HTML、图片等），但是动态网站需要处理业务逻辑的程序，业务逻辑程序通过不同的输出渲染输出不同的结果再由Web服务器传送给上游客户端。这样就产生了Web服务器和业务程序衔接的问题，就产生了cgi、fast-cgi。而WSGI是用来统一Web服务器和Python Web应用/框架之间接口的规范。</p>
+
+<p>其实根据上面的描述可以看到业务逻辑程序概念上和网络传输没有关系，比如我们用Flask写的Web程序其实只是业务逻辑，真正处理HTTP网络传输的是Web服务器，只不过Flask为了便于开发自身携带了一个开发型Web服务器。</p>
+
+<p>那WSGI有什么优势呢？为什么要有WSGI呢？首先要说明的是没有WSGI也是可以的，但是如果没有WSGI，每一个Web应用就要有单独的Web服务器，或者对某一个Web服务器做各种的兼容性的改动；有了WSGI规范，那么凡是支持该规范接口的Web服务器和Web应用就可以搭配使用提供服务。</p>
+
+<h2 id="wsgi规范主要骨架">WSGI规范主要骨架</h2>
+
+<p>刨去细节，从整体上看，WSGI对三方的规范：Web服务器规范、Web应用规范、中间件规范</p>
+
+<h3 id="web服务器规范">Web服务器规范：</h3>
+
+<blockquote>
+<p>服务器必须提供两样东西： 一是environ环境字典，二是start_response可调用函数</p>
+</blockquote>
+
+<p>其中：</p>
+
+<ul>
+<li>environ 字典必须包涵一定的数据项，类似于CGI environment
+
+<ul>
+<li>environ包含的字段样例如下</li>
+<li>environ[&lsquo;wsgi.input&rsquo;]        = sys.stdin.buffer</li>
+<li>environ[&lsquo;wsgi.errors&rsquo;]       = sys.stderr</li>
+<li>environ[&lsquo;wsgi.version&rsquo;]      = (1, 0)</li>
+<li>environ[&lsquo;wsgi.url_scheme&rsquo;] = &lsquo;https&rsquo;</li>
+<li>&hellip;</li>
+</ul></li>
+<li>start_response是接受两个参数的回调函数
+
+<ul>
+<li>参数status： 包涵标准的HTTP状态字符串 例如：200 OK</li>
+<li>参数response_headers：标准HTTP响应头列表</li>
+</ul></li>
+</ul>
+
+<p>服务器像下面这样将包含HTTP请求信息传递给Web应用/框架：</p>
+
+<pre><code class="language-python">iterable = simple_app(environ, start_response)
+for data in iterable:
+    pass
+    # send data to client
+</code></pre>
+
+<p>可以看出构建响应头、调用start_response并构建数据一可迭代的形式返回是应用/框架的责任,通过HTTP将响应头和数据传递给上游是Web服务器的责任。</p>
+
+<h3 id="web应用-框架规范">Web应用/框架规范</h3>
+
+<blockquote>
+<p>Web应用/框架必须是可调用的，可以是类、函数或者对象， <strong>init</strong>参数、 <strong>call</strong>参数或者函数必须如上面调用的样子</p>
+</blockquote>
+
+<ul>
+<li>一个environ对象</li>
+<li>一个可调用的start_response</li>
+</ul>
+
+<blockquote>
+<p>Web应用/框架必须在返回数据之前调用start_response</p>
+
+<p>Web应用/框架应该以可迭代的形式返回数据，比如：列表</p>
+</blockquote>
+
+<p>一个简单的WSGI应用的例子</p>
+
+<pre><code class="language-python">def app(environ, start_response):
+    status = '200 OK'
+    response_headers = [('Content-type','text/plain')]
+    start_response(status, response_headers)
+    return ['Hello world!\n']
+</code></pre>
+
+<h3 id="中间件规范">中间件规范：</h3>
+
+<blockquote>
+<p>中间件组建必须同时遵守Web服务端和Web应用断的规范要求，并添加了一些轻微的限制</p>
+
+<p>中间件应尽可能透明</p>
+</blockquote>
+
+<p>下面是一个简单的将字符串全部转换成大写的中间件</p>
+
+<pre><code class="language-python">class Upperware:
+                def __init__(self, app):
+                    self.wrapped_app = app
+
+                def __call__(self, environ, start_response): # 这里遵循应用端规范
+                    # 下面两个遵循服务端规范
+                    for data in self.wrapped_app(environ, start_response):
+                        yield data.upper()
+</code></pre>
+
+<h2 id="一个完整的wsgi应用运行样例">一个完整的WSGI应用运行样例</h2>
+
+<pre><code class="language-python"># coding:utf-8
+
+&quot;&quot;&quot;使用python内带的wsgiref简单服务器作Web服务器&quot;&quot;&quot;
+
+from wsgiref.simple_server import make_server
+from urlparse import parse_qs
+
+
+def simple_app(environ, start_response):
+    status = '200 OK'
+    response_headers = [('Content-type', 'text/plain')]
+    start_response(status, response_headers)
+    return ['Hello World']
+
+
+class Upperware:
+    def __init__(self, app):
+        self.wrapped_app = app
+
+    def __call__(self, environ, start_response):
+        for data in self.wrapped_app(environ, start_response):
+            yield data.upper()
+
+
+def main(environ, start_response):
+    print environ
+    params = parse_qs(environ.get('QUERY_STRING', ''))
+    if 'true' in params.get('mid', []):
+        app = Upperware(simple_app)
+    else:
+        app = simple_app
+    return app(environ, start_response)
+
+
+if __name__ == &quot;__main__&quot;:
+    srv = make_server('localhost', 9797, main)
+    srv.serve_forever()
+
+</code></pre>
+
+<p>如果以mid=true为参数的话访问（不限路径），就会使得中间件生效，返回文本全部大写，若不带该参数或该参数不为‘true’，中间件就不会生效。</p>
+
+<p>再重复提一句：<strong>构建响应头、调用start_response并构建数据一可迭代的形式返回是应用/框架的责任(业务逻辑),通过HTTP将响应头和数据传递给上游是Web服务器的责任（网络传输）。</strong>，Web框架要处理的不是HTTP传输问题，是应用逻辑构建问题，比如说路由系统、上下文、模板渲染等等。还有就是现实世界也不是非此即彼，比如说Web服务器也可以直接构建路由系统，Web服务器和Web框架的编写是技术活，也是力气活（需要实现很多规范的细节）</p>
+
+<p><strong>声明：这篇文章只是为了简单整体理解WSGI我自己的一点浅薄之见，要详细了解请参看文后的参考资料</strong></p>
+
+<h2 id="参考资料">参考资料</h2>
+
+<ul>
+<li>HTTP 权威指南</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">HTTP MDN</a></li>
+<li><a href="https://legacy.python.org/dev/peps/pep-333/">PEP333</a></li>
+<li><a href="https://legacy.python.org/dev/peps/pep-3333/">PEP3333</a></li>
+<li><a href="https://wsgi.readthedocs.io/en/latest/learn.html">Learn about WSGI</a></li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BF%AE%E7%82%BC%E4%B9%8B%E9%81%93%E5%A4%87%E5%BF%98%E6%B8%85%E5%8D%95/"> 《程序员修炼之道》备忘清单 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/python%E4%B8%AD%E9%80%9A%E8%BF%87lambda%E6%8A%9B%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"> Python中通过lambda抛异常的奇技淫巧 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

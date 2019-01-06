@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-23-调试 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#泛调试步骤">泛调试步骤：</a></li>
+<li><a href="#寻找缺陷的有效方法">寻找缺陷的有效方法：</a></li>
+<li><a href="#核对表-关于调试的建议">核对表（关于调试的建议）</a>
+<ul>
+<li><a href="#寻找缺陷的方法">寻找缺陷的方法</a></li>
+<li><a href="#解决语法错误的方法">解决语法错误的方法</a></li>
+<li><a href="#修正缺陷的方法">修正缺陷的方法</a></li>
+<li><a href="#调试的一般方法">调试的一般方法</a></li>
+</ul></li>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-23-%E8%B0%83%E8%AF%95/">《代码大全》阅读笔记-23-调试</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<h2 id="泛调试步骤">泛调试步骤：</h2>
+
+<ul>
+<li>通过可重复的实验搜集数据</li>
+<li>根据相关数据的统计构造一个假说</li>
+<li>设计一个实验来验证或者反证这个假说</li>
+<li>证明或者反证假说</li>
+<li>根据需要重复进行上面的步骤</li>
+</ul>
+
+<h2 id="寻找缺陷的有效方法">寻找缺陷的有效方法：</h2>
+
+<ul>
+<li>将错误状态稳定下来</li>
+<li>确定错误的来源
+
+<ol>
+<li>收集产生缺陷的相关数据</li>
+<li>分析所搜集的数据，并构造对缺陷的假设</li>
+<li>确定怎样去证实或证伪这个假设，可以对程序进行测试或是通过代码</li>
+<li>按照2确定的方法对假设做出最终结论</li>
+</ol></li>
+<li>修补缺陷</li>
+<li>对所修补的地方进行测试</li>
+<li>查找是否还有类似的错误</li>
+</ul>
+
+<h2 id="核对表-关于调试的建议">核对表（关于调试的建议）</h2>
+
+<h3 id="寻找缺陷的方法">寻找缺陷的方法</h3>
+
+<ul>
+<li>使用所有可用数据来构造你的假设</li>
+<li>不断提炼产生错误的测试用例</li>
+<li>在自己的单元测试suit中测试代码</li>
+<li>借助可以获得的任何工具</li>
+<li>用不同的方式重现错误</li>
+<li>通过产生更多的数据来构造更多的假设</li>
+<li>利用证伪假设的测试结果</li>
+<li>用头脑风暴的方式找出可能的假设</li>
+<li>在桌上放一个笔记本，把需要尝试的事情列出来</li>
+<li>缩小被怀疑有问题的代码区域</li>
+<li>对之前出现问题的类和子程序保持警惕</li>
+<li>检查最近修改的代码</li>
+<li>扩展被怀疑有问题的代码区域</li>
+<li>采用增量集成</li>
+<li>检查常见的缺陷</li>
+<li>和其他人一起讨论你的问题</li>
+<li>抛开问题休息一下</li>
+<li>在使用快速安葬调试法的时候，要设置一个时间上限</li>
+<li>列出所有的蛮力调试方法，逐条应用</li>
+</ul>
+
+<h3 id="解决语法错误的方法">解决语法错误的方法</h3>
+
+<ul>
+<li>不要太信任编译器信息中给出的行号</li>
+<li>不要太信任编译器信息</li>
+<li>不要太信任编译器所给出的第二条出错信息</li>
+<li>分而治之，各个击破</li>
+<li>使用具有语法分析功能的编辑器来找出位置错误的注释和引号</li>
+</ul>
+
+<h3 id="修正缺陷的方法">修正缺陷的方法</h3>
+
+<ul>
+<li>在动手之前先理解程序</li>
+<li>理解整个程序而非具体问题</li>
+<li>验证对错误的分析</li>
+<li>放松一下</li>
+<li>要保存最初的源代码</li>
+<li>治本，而非治标</li>
+<li>只有当理由充分地时候才去修改代码</li>
+<li>一次只做一个动作</li>
+<li>检查自己所做的修订</li>
+<li>添加单元测试来暴露代价中的缺陷</li>
+<li>找出类似的缺陷</li>
+</ul>
+
+<h3 id="调试的一般方法">调试的一般方法</h3>
+
+<ul>
+<li>你是否会把调试看做是能让你更好的理解程序、错误、代码质量和解决问题方法的良机</li>
+<li>你是否会避免采用随机尝试查找错误或迷信式的调试方法</li>
+<li>你是否假设错误是你自己造成的</li>
+<li>你是否使用了科学的方法将间歇性的错误稳定下来？</li>
+<li>你是否使用了科学的方法来寻找缺陷</li>
+<li>你在寻找缺陷的时候会使用多种不同的方法吗？还是每次都是用相同的方法？</li>
+<li>你会验证你的修改是否正确吗？</li>
+<li>你会在调试中使用编译器警告信息、执行性能分析、利用测试框架和交互式调试方法吗？</li>
+</ul>
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>调试同整个软件开发的成败息息相关。最好的解决之道是使用科学的方法来避免缺陷的产生。然而，花点时间来提高自己的调试技能还是很划算的，因为优秀和拙劣的调试表现之间的差距至少是10:1</li>
+<li>要想成功，系统化的查找和改正错误的方法直观重要。要专注于你的调试工作，让每一次测试都能让你朝着正确的方向前进一步。要是用科学的调试方法。</li>
+<li>在动手解决问题之前，要理解问题的根本。胡乱猜测错误的来源和随机修改将会让你的程序陷入比刚开始调试时更糟糕的境地</li>
+<li>将编译器警告级别设置为最严格，把警告信息所报告的错误都改正。如果你忽略了明显的错误，那么要改正那些微妙的错误就会非常麻烦</li>
+<li>调试工具对软件开发而言是强有力的支持手段。找出这些工具并加以应用，当然，请记得在调试的时候开动脑筋。</li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-22-%E5%BC%80%E5%8F%91%E8%80%85%E6%B5%8B%E8%AF%95/"> 《代码大全》阅读笔记-22-开发者测试 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-24-%E9%87%8D%E6%9E%84/"> 《代码大全》阅读笔记-24-重构 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

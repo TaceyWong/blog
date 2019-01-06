@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Python中通过lambda抛异常的奇技淫巧 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#方法一">方法一</a></li>
+<li><a href="#方法二">方法二</a></li>
+<li><a href="#方法三">方法三</a></li>
+<li><a href="#方法四">方法四：</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/python%E4%B8%AD%E9%80%9A%E8%BF%87lambda%E6%8A%9B%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/">Python中通过lambda抛异常的奇技淫巧</a></h1>
+      <span class="post-date">Jul 4, 2018 </span>
+      <div class="post-content">
+        
+
+<p>假设我们需要一个函数什么事都不干，只是抛出异常（在某些系统中有些handler就是干这事的），我们可以很直观的写出下面的代码：</p>
+
+<pre><code class="language-python">def func():
+    raise Exception(&quot;this is a exception&quot;)
+</code></pre>
+
+<p>就这么一个简单的功能，我们更希望用lambda实现，自然就写下了下面的代码：</p>
+
+<pre><code class="language-python">lambda :raise  Exception(&quot;this is a exception&quot;)
+</code></pre>
+
+<p>但遗憾的是这样是不行的~~~会出现<code>SyntaxError: invalid syntax</code>的错误。具体原因可以看<a href="https://docs.python.org/3/reference/expressions.html#lambda">Python Lambda</a></p>
+
+<p>下面搜集实践了几种可用的奇技淫巧：</p>
+
+<h4 id="方法一">方法一</h4>
+
+<pre><code class="language-python">func = lambda: (_ for _ in ()).throw(Exception('this is an exception'))
+</code></pre>
+
+<h4 id="方法二">方法二</h4>
+
+<p>如果不在乎异常信息是什么：</p>
+
+<pre><code class="language-python">func = lambda: 1/0
+</code></pre>
+
+<p>不难理解，这个函数会抛出<code>ZeroDivisionError</code>。这种方法其实代表了一类，比如也可以写成：</p>
+
+<pre><code class="language-python">func = lambda : [][0]
+</code></pre>
+
+<p>这类实现就是在lambda后面写一定会抛出异常的表达式</p>
+
+<h4 id="方法三">方法三</h4>
+
+<p>一种非常阴霸的方式,只适合python3.x</p>
+
+<pre><code class="language-python">func = lambda : exec('raise(Exception(&quot;this is an exception&quot;))')
+</code></pre>
+
+<h4 id="方法四">方法四：</h4>
+
+<p>尚未看懂的</p>
+
+<pre><code class="language-python"># python2.x
+type(lambda:0)(type((lambda:0).func_code)(
+  1,1,1,67,'|\0\0\202\1\0',(),(),('x',),'','',1,''),{}
+)(Exception())
+</code></pre>
+
+<p>或</p>
+
+<pre><code class="language-python"># python3.x
+type(lambda: 0)(type((lambda: 0).__code__)(
+    1,0,1,1,67,b'|\0\202\1\0',(),(),('x',),'','',1,b''),{}
+)(Exception())
+</code></pre>
+
+<hr />
+
+<p>最后忠告:<strong><em>玩玩可以，慎用!</em></strong></p>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3pep333-wsgi/"> 简单理解PEP333-WSGI </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/golang%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"> Golang知识图谱 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

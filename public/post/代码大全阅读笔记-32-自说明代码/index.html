@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-32-自说明代码 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#核对表">核对表</a>
+<ul>
+<li><a href="#核对表-自说明代码">核对表（自说明代码）</a>
+<ul>
+<li><a href="#子程序">子程序</a></li>
+<li><a href="#数据名">数据名</a></li>
+<li><a href="#数据组织">数据组织</a></li>
+<li><a href="#控制">控制</a></li>
+<li><a href="#布局">布局</a></li>
+</ul></li>
+<li><a href="#设计">设计</a></li>
+<li><a href="#核对表-好的注释技术">核对表（好的注释技术）</a>
+<ul>
+<li><a href="#一般问题">一般问题</a></li>
+<li><a href="#语旬和段落">语旬和段落</a></li>
+<li><a href="#数据声明">数据声明</a></li>
+<li><a href="#控制结构">控制结构</a></li>
+<li><a href="#子程序-1">子程序</a></li>
+<li><a href="#文件-类和程序">文件、类和程序</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-32-%E8%87%AA%E8%AF%B4%E6%98%8E%E4%BB%A3%E7%A0%81/">《代码大全》阅读笔记-32-自说明代码</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<h2 id="核对表">核对表</h2>
+
+<h3 id="核对表-自说明代码">核对表（自说明代码）</h3>
+
+<ul>
+<li>你的类接口体现出某种一致的抽象吗？</li>
+<li>你的类名有意义吗，能表明其中心意图吗？</li>
+<li>你的类接凵对于如何使用该类显而易见吗？</li>
+<li>你的类接囗能抽象到不需考虑其实现过程吗？能把类看成是黑盒吗？</li>
+</ul>
+
+<h4 id="子程序">子程序</h4>
+
+<ul>
+<li>你的每个子程序名都能准确地指示该子程序确切干些什么吗？</li>
+<li>你的各子程序的任务明确吗？</li>
+<li>若各子程序中自成一体后更有用，你都将其各自独立出来了吗？</li>
+<li>每个子程序的接口都清晰明了吗？</li>
+</ul>
+
+<h4 id="数据名">数据名</h4>
+
+<ul>
+<li>类型名描述有助于说明数据声明吗？</li>
+<li>你的变量名有意义吗？</li>
+<li>变量只用在其名字所代表意义的场合吗？</li>
+<li>你的循环变量名能给出更多信息，而不是i、j、k之类的吗？</li>
+<li>你用了名字有意义的枚举类型，而非临时拼凑的标识或者布尔变量吗？</li>
+<li>用具名常量代替神秘数值或者字符串了吗？</li>
+<li>你的命名规范能区分类型名、枚举类型、具名常量、局部变量、类变量以及全局变量吗？</li>
+</ul>
+
+<h4 id="数据组织">数据组织</h4>
+
+<ul>
+<li>你根据编程清晰的需要，使用了额外变量来提高清晰度吗？</li>
+<li>你对某变量的引用集中吗？</li>
+<li>数据类型简化到了最低复杂度吗？</li>
+<li>你是通过抽象访问子程序（抽象数据类型）来访问复杂数据吗？</li>
+</ul>
+
+<h4 id="控制">控制</h4>
+
+<ul>
+<li>代码中的正常执行路径很清晰吗？</li>
+<li>相关语句放在一起了吗？</li>
+<li>相对独立的语句组打包为子程序了吗？</li>
+<li>正常情况的处理位于“语句之后，而非在else子句中吗？</li>
+<li>控制结构简单明了，以使复杂度最低吗？</li>
+<li>每个循环完成且仅完成一个功能，是像定义良好的子程序那么做吗？</li>
+<li>嵌套层次是最少吗？</li>
+<li>逻辑表达式通过额外添加布尔变量、布尔函数和功能表简化了吗？</li>
+</ul>
+
+<h4 id="布局">布局</h4>
+
+<ul>
+<li>程序的布局能表现出其逻辑结构吗？</li>
+</ul>
+
+<h3 id="设计">设计</h3>
+
+<ul>
+<li>代码直截了当吗？是不是避免了自作聪明或新花样？</li>
+<li>实现细节尽可能隐藏了吗？</li>
+<li>程序是尽可能采用问题领域的术语，而非按照计算机科学或者编程语言的术语编写的吗？</li>
+</ul>
+
+<h3 id="核对表-好的注释技术">核对表（好的注释技术）</h3>
+
+<h4 id="一般问题">一般问题</h4>
+
+<ul>
+<li>别人拿起你的代码就能立刻明白其意吗？</li>
+<li>你的注释是在解释代码用意，或概括代码在做什么，而非简单重复代码</li>
+<li>采用了伪代码编程法来减少注释时间吗？</li>
+<li>是重写有玄机的代码，而非为其做注释吗？</li>
+<li>你的注释能否同代码一起更新？</li>
+<li>注释清楚正确吗？</li>
+<li>你的注释风格便于修改注释吗？</li>
+</ul>
+
+<h4 id="语旬和段落">语旬和段落</h4>
+
+<ul>
+<li>代码避免用行尾注释了吗？</li>
+<li>注释是着力说明为什么而非怎么样吗？</li>
+<li>注释为将要阅读代码的人们做好准备了吗？</li>
+<li>每个注释都其用处吗？删掉抑或改进了多余的、无关紧要的或随意的注释没有？</li>
+<li>是否注释了代码的非常规之处？</li>
+<li>避免使用用缩略语了吗？</li>
+<li>主次注释区别明显吗？</li>
+<li>含错代码和未公开的代码特性有注释吗？</li>
+</ul>
+
+<h4 id="数据声明">数据声明</h4>
+
+<ul>
+<li>对数据声明的注释说明了数值单位吗？</li>
+<li>数值数据的取值范围注释出来了吗？</li>
+<li>注释出了编码含义吗？</li>
+<li>对输入数据的限制有注释吗？</li>
+<li>对位标志做注释了吗？</li>
+<li>在各全局变量声明的地方对其做注释了吗？</li>
+<li>各全局变量是通过命名规范、注释（或者两者兼用）来标识其意义吗？</li>
+<li>神秘数值是否以具名常量或变量代替，而非只是标注之？</li>
+</ul>
+
+<h4 id="控制结构">控制结构</h4>
+
+<ul>
+<li>控制语句都注释了吗？</li>
+<li>冗长或者复杂的控制结构结尾处有注释吗？抑或可能的话，简化之从而省去注释了吗？</li>
+</ul>
+
+<h4 id="子程序-1">子程序</h4>
+
+<ul>
+<li>各子程序的意图都注释出了吗？</li>
+<li>子程序的其他有关情况（诸如输入输出数据、接口假设、局限性、纠错、全局效果和算法来源）都注释出来了吗？</li>
+</ul>
+
+<h4 id="文件-类和程序">文件、类和程序</h4>
+
+<ul>
+<li>程序有简短的文档（就像在“以书本为范例”中说明的那样）给出程序组织的概述吗？</li>
+<li>每个文件的用途都有说明吗？</li>
+<li>作者姓名、email及电话号码在代码清单中都有吗？</li>
+</ul>
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>该不该注释是个需要认真对待的问题。差劲的注释只会浪费时间，帮倒忙；好的注释才有价值。
++源代码应当含有程序大部分的关键信息。只要程序依然在用，源代码比其他资料都能保持更新，故而将重要信息融入代码是很有用处的。</li>
+<li>好代码本身就是最好的说明。如果代码太糟，需要大量注释，应先试着改进代码，直至无须过多注释为止。</li>
+<li>注释应说出代码无法说出的东西一一一例如概述或用意等信息。</li>
+<li>有的注释风格需要许多重复性劳动，应舍弃之，改用易于维护的注释风格。</li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-31-%E5%B8%83%E5%B1%80%E4%B8%8E%E9%A3%8E%E6%A0%BC/"> 《代码大全》阅读笔记-31-布局与风格 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-33-%E4%B8%AA%E4%BA%BA%E6%80%A7%E6%A0%BC/"> 《代码大全》阅读笔记-33-个人性格(personal character) </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

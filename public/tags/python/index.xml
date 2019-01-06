@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Tacey</title>
+    <link>https://taceywong.github.io/tags/python/</link>
+    <description>Recent content in Python on Tacey</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Jul 2018 19:28:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://taceywong.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python中通过lambda抛异常的奇技淫巧</title>
+      <link>https://taceywong.github.io/post/python%E4%B8%AD%E9%80%9A%E8%BF%87lambda%E6%8A%9B%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</link>
+      <pubDate>Wed, 04 Jul 2018 19:28:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/post/python%E4%B8%AD%E9%80%9A%E8%BF%87lambda%E6%8A%9B%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</guid>
+      <description>假设我们需要一个函数什么事都不干，只是抛出异常（在某些系统中有些handler就是干这事的），我们可以很直观的写出下面的代码：
+def func(): raise Exception(&amp;quot;this is a exception&amp;quot;)  就这么一个简单的功能，我们更希望用lambda实现，自然就写下了下面的代码：
+lambda :raise Exception(&amp;quot;this is a exception&amp;quot;)  但遗憾的是这样是不行的~~~会出现SyntaxError: invalid syntax的错误。具体原因可以看Python Lambda
+下面搜集实践了几种可用的奇技淫巧：
+方法一 func = lambda: (_ for _ in ()).throw(Exception(&#39;this is an exception&#39;))  方法二 如果不在乎异常信息是什么：
+func = lambda: 1/0  不难理解，这个函数会抛出ZeroDivisionError。这种方法其实代表了一类，比如也可以写成：
+func = lambda : [][0]  这类实现就是在lambda后面写一定会抛出异常的表达式
+方法三 一种非常阴霸的方式,只适合python3.x
+func = lambda : exec(&#39;raise(Exception(&amp;quot;this is an exception&amp;quot;))&#39;)  方法四： 尚未看懂的
+# python2.x type(lambda:0)(type((lambda:0).func_code)( 1,1,1,67,&#39;|\0\0\202\1\0&#39;,(),(),(&#39;x&#39;,),&#39;&#39;,&#39;&#39;,1,&#39;&#39;),{} )(Exception())  或</description>
+    </item>
+    
+    <item>
+      <title>简单理解PEP333-WSGI</title>
+      <link>https://taceywong.github.io/post/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3pep333-wsgi/</link>
+      <pubDate>Wed, 20 Jun 2018 14:35:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/post/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3pep333-wsgi/</guid>
+      <description>声明：这篇文章只是为了整体理解WSGI，会忽略很多细节，要详细了解请参看文后的参考资料
+WSGI概述 WSGI全称是Python Web Server Gateway Interface（Python Web服务网关接口）仅针对名字可以做出一下总结：
+ 1、Python Web Server Gateway Interface：这个规范是针对Python的 2、Python Web Server Gateway Interface：这个规范是针对Web服务相关的 3、Python Web Server Gateway Interface：这个规范是针对服务网关处的 4、Python Web Server Gateway Interface：这个规范是一种接口定义，不是具体实现  上面这样按照字面文本切分来理解也许是错的，但是在这里用来梳理理解我认为还是可以的。首先条目1、2、4应该是没问题,比较难理解的是3。3比较难理解是因为在我们的日常学习、开发的经历中，gateway/网关这一个词的准确指代是不明确、不固定的，这个词非常笼统与抽象，业务逻辑上集束处可以被成为网关，协议转换处可以被成为网关，权限分层处可以被称为网关……在基础的HTTP架构里，网关原本是用于称呼协议代理转换的那一部分，比如我们平常通过网页首发QQ邮件，浏览器后服务商后台进行通讯使用的是HTTP（S）协议，可e-mail常规协议是smtp、pop3这些，所以在中间一般经历了HTTP（S）到stmp等协议的转换，这一部分就是传统上基于HTTP服务架构中的网关。那么WSGI中的网关是什么意思呢？是不是协议转换？答案是否定的。在WSGI中所谓的网关是Web服务器与Web应用之间的衔接处，他使用的是类CGI之中网关的意思，就是Web服务器和动态Web程序之间的衔接。静态Web站点需要的软件程序只有Web服务器，Web服务器对文件系统进行相应的映射提供静态资源服务（HTML、图片等），但是动态网站需要处理业务逻辑的程序，业务逻辑程序通过不同的输出渲染输出不同的结果再由Web服务器传送给上游客户端。这样就产生了Web服务器和业务程序衔接的问题，就产生了cgi、fast-cgi。而WSGI是用来统一Web服务器和Python Web应用/框架之间接口的规范。
+其实根据上面的描述可以看到业务逻辑程序概念上和网络传输没有关系，比如我们用Flask写的Web程序其实只是业务逻辑，真正处理HTTP网络传输的是Web服务器，只不过Flask为了便于开发自身携带了一个开发型Web服务器。
+那WSGI有什么优势呢？为什么要有WSGI呢？首先要说明的是没有WSGI也是可以的，但是如果没有WSGI，每一个Web应用就要有单独的Web服务器，或者对某一个Web服务器做各种的兼容性的改动；有了WSGI规范，那么凡是支持该规范接口的Web服务器和Web应用就可以搭配使用提供服务。
+WSGI规范主要骨架 刨去细节，从整体上看，WSGI对三方的规范：Web服务器规范、Web应用规范、中间件规范
+Web服务器规范：  服务器必须提供两样东西： 一是environ环境字典，二是start_response可调用函数
+ 其中：
+ environ 字典必须包涵一定的数据项，类似于CGI environment  environ包含的字段样例如下 environ[&amp;lsquo;wsgi.input&amp;rsquo;] = sys.stdin.buffer environ[&amp;lsquo;wsgi.errors&amp;rsquo;] = sys.stderr environ[&amp;lsquo;wsgi.version&amp;rsquo;] = (1, 0) environ[&amp;lsquo;wsgi.url_scheme&amp;rsquo;] = &amp;lsquo;https&amp;rsquo; &amp;hellip;  start_response是接受两个参数的回调函数  参数status： 包涵标准的HTTP状态字符串 例如：200 OK 参数response_headers：标准HTTP响应头列表   服务器像下面这样将包含HTTP请求信息传递给Web应用/框架：</description>
+    </item>
+    
+  </channel>
+</rss>

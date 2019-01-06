@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-12-基本数据类型 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#核对表-基本数据类型">核对表：基本数据类型</a>
+<ul>
+<li><a href="#数值概论">数值概论</a></li>
+<li><a href="#整数">整数</a></li>
+<li><a href="#浮点数">浮点数</a></li>
+<li><a href="#字符和字符串">字符和字符串</a></li>
+<li><a href="#布尔变量">布尔变量</a></li>
+<li><a href="#枚举类型">枚举类型</a></li>
+<li><a href="#具名常量">具名常量</a></li>
+<li><a href="#数组">数组</a></li>
+<li><a href="#创建类型">创建类型</a></li>
+</ul></li>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-12-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">《代码大全》阅读笔记-12-基本数据类型</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<h2 id="核对表-基本数据类型">核对表：基本数据类型</h2>
+
+<h3 id="数值概论">数值概论</h3>
+
+<ul>
+<li>代码中避免使用神秘数值</li>
+<li>代码考虑了除零错误了吗？</li>
+<li>类型转换很明显吗？</li>
+<li>如果在一条语句中存在两个不同类型的变量，那么这条语句会想你期望的那样求值吗？</li>
+<li>代码避免了混合类型比较吗？</li>
+<li>程序编译时没有警告信息吗？</li>
+</ul>
+
+<h3 id="整数">整数</h3>
+
+<ul>
+<li>使用整数除法的表达式能按预期的那样工作吗？</li>
+<li>整数表达式避免整数溢出问题吗？</li>
+</ul>
+
+<h3 id="浮点数">浮点数</h3>
+
+<ul>
+<li>代码避免了对数量级相差巨大的数字做加减运算吗？</li>
+<li>代码系统地阻止了舍入错误的发生吗？</li>
+<li>代码避免对对浮点数做灯亮比较吗？</li>
+</ul>
+
+<h3 id="字符和字符串">字符和字符串</h3>
+
+<ul>
+<li>代码避免使用神秘字符串和神秘字符了吗？</li>
+<li>使用字符串时避免了off-by-one错误了吗？</li>
+<li>C代码吧字符串指针和字符数组区别对待了吗？</li>
+<li>C代码遵循了把字符串声明为CONTANT+1长度了吗？</li>
+<li>C代码在适当的时候用字符数组来代替指针了吗？</li>
+<li>C代码吧字符串初始化为NULL来避免无终端的字符串了吗？</li>
+<li>C代码用strncpy()代替strcpy()吗？strncat()和strncmp()呢？</li>
+</ul>
+
+<h3 id="布尔变量">布尔变量</h3>
+
+<ul>
+<li>程序用额外的布尔变量来说明条件判断了吗？</li>
+<li>程序用额外的布尔变量来简化条件判断了吗？</li>
+</ul>
+
+<h3 id="枚举类型">枚举类型</h3>
+
+<ul>
+<li>程序用枚举类型而非具名常量来提高可读性、可靠性、和可修改性了吗？</li>
+<li>当变量的用法不能仅用true和false表示的时候，程序用枚举类型取代布尔变量吗？</li>
+<li>针对枚举类型的测试检测了非法数值吗？</li>
+<li>把枚举类型的第一项条目保留为“非法“了吗？</li>
+</ul>
+
+<h3 id="具名常量">具名常量</h3>
+
+<ul>
+<li>程序用具名常量而不是神秘数值来声明数据和表示循环界限了吗？</li>
+<li>具名常量的使用一致吗？——没有在有些位置使用具名常量又在其它位置使用文字量？</li>
+</ul>
+
+<h3 id="数组">数组</h3>
+
+<ul>
+<li>所有的数组下标都没有超出数组边界吗?</li>
+<li>数组引用没有出现off-by-one错误吗？</li>
+<li>所有多维数组的下标的顺序都正确吗？</li>
+<li>在嵌套循环里，把正确的变量用于数组下标来避免循环下标串话了吗？</li>
+</ul>
+
+<h3 id="创建类型">创建类型</h3>
+
+<ul>
+<li>程序对每一种可能变化的数据分别采用不同的类型吗？</li>
+<li>类型名是以该类型所表示的显示世界实体为导向，而不是以编程语言类型为导向吗？</li>
+<li>类型名的描述性足以强，可以帮助解释数据声明吗？</li>
+<li>你避免重新定义预定义类型吗？</li>
+<li>与简单的重定义一个类型相比，你考虑过创建一个新类吗?</li>
+</ul>
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>使用特定的数据类型就意味着要记住适用于各个类型的很多独立的原则。用本章的核对表来确认你已经对常见问题做了考虑。</li>
+<li>如果你的语言支持，创建自定义类型会使得你的程序更容易修改，并更具有自描述性</li>
+<li><strong>当你用typedef或者其等价方式创建了一个简单类型的时候，考虑是否更应该创建一个新的类</strong></li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-11-%E5%8F%98%E9%87%8F%E5%90%8D%E7%9A%84%E5%8A%9B%E9%87%8F/"> 《代码大全》阅读笔记-11-变量名的力量 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-13-%E4%B8%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"> 《代码大全》阅读笔记-13-不常见的数据类型 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>编程语言 on Tacey</title>
+    <link>https://taceywong.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</link>
+    <description>Recent content in 编程语言 on Tacey</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Aug 2018 15:57:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://taceywong.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang知识图谱</title>
+      <link>https://taceywong.github.io/post/golang%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</link>
+      <pubDate>Mon, 06 Aug 2018 15:57:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/post/golang%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</guid>
+      <description>原：https://www.processon.com/view/link/5a9ba4c8e4b0a9d22eb3bdf0?from=timeline 百度脑图重制：http://naotu.baidu.com/file/e7fa82e6d3feb9ab3d7e3756cc7a6cd1?token=cb333bf07fb2fddc</description>
+    </item>
+    
+    <item>
+      <title>Python中通过lambda抛异常的奇技淫巧</title>
+      <link>https://taceywong.github.io/post/python%E4%B8%AD%E9%80%9A%E8%BF%87lambda%E6%8A%9B%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</link>
+      <pubDate>Wed, 04 Jul 2018 19:28:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/post/python%E4%B8%AD%E9%80%9A%E8%BF%87lambda%E6%8A%9B%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/</guid>
+      <description>假设我们需要一个函数什么事都不干，只是抛出异常（在某些系统中有些handler就是干这事的），我们可以很直观的写出下面的代码：
+def func(): raise Exception(&amp;quot;this is a exception&amp;quot;)  就这么一个简单的功能，我们更希望用lambda实现，自然就写下了下面的代码：
+lambda :raise Exception(&amp;quot;this is a exception&amp;quot;)  但遗憾的是这样是不行的~~~会出现SyntaxError: invalid syntax的错误。具体原因可以看Python Lambda
+下面搜集实践了几种可用的奇技淫巧：
+方法一 func = lambda: (_ for _ in ()).throw(Exception(&#39;this is an exception&#39;))  方法二 如果不在乎异常信息是什么：
+func = lambda: 1/0  不难理解，这个函数会抛出ZeroDivisionError。这种方法其实代表了一类，比如也可以写成：
+func = lambda : [][0]  这类实现就是在lambda后面写一定会抛出异常的表达式
+方法三 一种非常阴霸的方式,只适合python3.x
+func = lambda : exec(&#39;raise(Exception(&amp;quot;this is an exception&amp;quot;))&#39;)  方法四： 尚未看懂的
+# python2.x type(lambda:0)(type((lambda:0).func_code)( 1,1,1,67,&#39;|\0\0\202\1\0&#39;,(),(),(&#39;x&#39;,),&#39;&#39;,&#39;&#39;,1,&#39;&#39;),{} )(Exception())  或</description>
+    </item>
+    
+  </channel>
+</rss>

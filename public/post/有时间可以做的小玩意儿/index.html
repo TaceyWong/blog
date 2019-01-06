@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 有时间可以做的小玩意儿 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#统计博客访ip-pv的服务">统计博客访IP,PV的服务</a></li>
+<li><a href="#统计博客访问地图">统计博客访问地图</a></li>
+<li><a href="#博客关联推荐">博客关联推荐</a></li>
+<li><a href="#中国大陆内火车一天内的流动-数据可视化">中国大陆内火车一天内的流动（数据可视化）</a></li>
+<li><a href="#数据实时显示平台">数据实时显示平台</a></li>
+<li><a href="#微信签到-活动在线照片墙">微信签到、活动在线照片墙</a></li>
+<li><a href="#中国历史的可视化">中国历史的可视化</a></li>
+<li><a href="#招聘网站数据采集及分析">招聘网站数据采集及分析</a></li>
+<li><a href="#写一个markdown的解析器">写一个markdown的解析器</a></li>
+<li><a href="#微博分析系统">微博分析系统</a></li>
+<li><a href="#sns网站及应用">SNS网站及应用</a></li>
+<li><a href="#推荐系统">推荐系统</a></li>
+<li><a href="#单页网站生成器">单页网站生成器</a></li>
+<li><a href="#云笔记本-chrome应用">云笔记本（Chrome应用）</a></li>
+<li><a href="#局域网私人聊天-chrome应用">局域网私人聊天（Chrome应用）</a></li>
+<li><a href="#简历生成器及简历托管">简历生成器及简历托管</a></li>
+<li><a href="#人脸相似度微信服务">人脸相似度微信服务</a></li>
+<li><a href="#简单滤镜应用">简单滤镜应用</a></li>
+<li><a href="#机器学习与数据挖掘实验平台">机器学习与数据挖掘实验平台</a></li>
+<li><a href="#旅游路径规划">旅游路径规划</a></li>
+<li><a href="#图表生成器">图表生成器</a></li>
+<li><a href="#todo-list-chrome应用">ToDo List（Chrome应用）</a></li>
+<li><a href="#事务管理">事务管理</a></li>
+<li><a href="#健康管理">健康管理</a></li>
+<li><a href="#磁力链接搜索-种子搜索-电影推荐-音乐推荐-图书推荐">磁力链接搜索/种子搜索  电影推荐/音乐推荐/图书推荐</a></li>
+<li><a href="#统计浏览的网站-并进行可视化-提取网页分词-分类-外语调用api-chrome-插件">统计浏览的网站 并进行可视化  提取网页分词 分类 外语调用API（chrome 插件 ）</a></li>
+<li><a href="#kindle书籍管理-云">kindle书籍管理·「云</a></li>
+<li><a href="#二维码生成-管理-追踪">二维码生成、管理、追踪</a></li>
+<li><a href="#搜索聚合">搜索聚合</a></li>
+<li><a href="#通用爬虫平台-数据分析平台-数据可视化-报表平台">通用爬虫平台-数据分析平台-数据可视化/报表平台</a></li>
+<li><a href="#内容聚合发布平台">内容聚合发布平台</a></li>
+<li><a href="#视频抽取服务">视频抽取服务</a></li>
+<li><a href="#考研成绩查询平台-高考成绩查询平台">考研成绩查询平台，高考成绩查询平台</a></li>
+<li><a href="#翻墙服务">翻墙服务</a></li>
+<li><a href="#中间人攻击系统-微信公众号爬取">中间人攻击系统.微信公众号爬取</a></li>
+<li><a href="#内容资源抓取二次整合流量变现">内容资源抓取二次整合流量变现</a></li>
+<li><a href="#读书程序">读书程序</a></li>
+<li><a href="#pusher">Pusher</a></li>
+<li><a href="#单点登录系统-第三方登录">单点登录系统、第三方登录</a></li>
+<li><a href="#nginx-api网关及web-admin">Nginx API网关及Web Admin</a></li>
+<li><a href="#操作自然语言形式化dsl-nlp">操作自然语言形式化DSL\NLP</a></li>
+<li><a href="#api-store">API Store</a></li>
+<li><a href="#系统监控">系统监控</a></li>
+<li><a href="#可视化配置工具">可视化配置工具</a></li>
+<li><a href="#code-push-server">code-push-server</a></li>
+<li><a href="#报表系统">报表系统</a></li>
+<li><a href="#站群">站群</a></li>
+<li><a href="#制作一键安装socket代理脚本">制作一键安装socket代理脚本</a></li>
+<li><a href="#服务器信息搜集">服务器信息搜集</a></li>
+<li><a href="#自动写诗-写对联-谱曲">自动写诗、写对联、谱曲</a></li>
+<li><a href="#邮箱签名生成器">邮箱签名生成器</a></li>
+<li><a href="#golang-mock服务-go-mock">golang mock服务——go-mock</a></li>
+<li><a href="#浏览器cookie分析工具">浏览器cookie分析工具</a></li>
+<li><a href="#汇总全国政府网站-实时政务分析">汇总全国政府网站，实时政务分析</a></li>
+<li><a href="#写一个判断文件类型的包-单文件-兼容纯python和file4命令">写一个判断文件类型的包，单文件，兼容纯Python和file4命令</a></li>
+<li><a href="#语义化日志">语义化日志</a></li>
+<li><a href="#可视化状态机">可视化状态机</a></li>
+<li><a href="#可视化正则表达式">可视化正则表达式</a></li>
+<li><a href="#自动注册">自动注册</a></li>
+<li><a href="#文档自动分类">文档自动分类</a></li>
+<li><a href="#农产品二十年价格变化二十年-数据可视化">农产品二十年价格变化二十年（数据可视化）</a></li>
+<li><a href="#知乎智能问答">知乎智能问答</a></li>
+<li><a href="#信用卡优惠采集">信用卡优惠采集</a></li>
+<li><a href="#搜房-搜医院-搜厕所">搜房，搜医院、搜厕所</a></li>
+<li><a href="#url自动分析">url自动分析</a></li>
+<li><a href="#采集运营商数据-公司运营数据-互联网服务安全策略">采集运营商数据 公司运营数据（互联网服务安全策略）</a></li>
+<li><a href="#x">x</a></li>
+<li><a href="#短网址服务">短网址服务</a></li>
+<li><a href="#爬虫的用途">爬虫的用途</a></li>
+<li><a href="#权限管理框架">权限管理框架</a></li>
+<li><a href="#秒杀系统">秒杀系统</a></li>
+<li><a href="#x-1">x</a></li>
+<li><a href="#动态口令-将军令">动态口令、将军令</a></li>
+<li><a href="#整理版权失效的老电影小品上传到各大平台">整理版权失效的老电影小品上传到各大平台</a></li>
+<li><a href="#各应用商店应用数据分析-下载量-评论-评分等">各应用商店应用数据分析(下载量，评论，评分等)</a></li>
+<li><a href="#监控目录-集成git-笔记云端">监控目录，集成git，笔记云端</a></li>
+</ul></li>
+<li><a href="#报警-邮件-微信-短信-sentry-eljk">报警 邮件 微信 短信 sentry eljk</a></li>
+<li><a href="#全国工商信息汇总-dadh">全国工商信息汇总 dadh</a>
+<ul>
+<li><a href="#小程序-优惠券平台">小程序 优惠券平台</a></li>
+<li><a href="#公司信息资讯-评估平台">公司信息资讯，评估平台</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E6%9C%89%E6%97%B6%E9%97%B4%E5%8F%AF%E4%BB%A5%E5%81%9A%E7%9A%84%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">有时间可以做的小玩意儿</a></h1>
+      <span class="post-date">Oct 11, 2015 </span>
+      <div class="post-content">
+        
+
+<h2 id="统计博客访ip-pv的服务">统计博客访IP,PV的服务</h2>
+
+<p>原理很简单，主要分为</p>
+
+<ul>
+<li>博客嵌入的js代码（充当client）：每当博客页面打开的时候，js代码就会运行。设置js代码携带博客的ID标志对服务器发出请求，获得返回值显示在博客页面中</li>
+<li>服务器程序：响应js代码的请求，提取请求中携带的信息，分析出博客ID、IP地址并对更新数据库表对信息进行保存，将相应的信息返回。</li>
+</ul>
+
+<h2 id="统计博客访问地图">统计博客访问地图</h2>
+
+<p>原理和①相同，只不过要做IP-&gt;实际地址转换，并设置页面显示布局。
+这个也可以作为另外一个服务：大概率定位访客的地理位置，推送周边广告</p>
+
+<h2 id="博客关联推荐">博客关联推荐</h2>
+
+<p>信息传递原理和前面的一样。复杂的是要定期抓取博客的文章进行关联分析，存储起来以备js请求时返回关联推荐结果。</p>
+
+<h2 id="中国大陆内火车一天内的流动-数据可视化">中国大陆内火车一天内的流动（数据可视化）</h2>
+
+<p>主要的一个非技术难点——从哪里获得完整的火车运行时刻表</p>
+
+<ul>
+<li>获得火车时刻信息</li>
+<li>获得火车运行路线与实际地图的坐标映射</li>
+<li>数据可视化就是个简单的技术活</li>
+</ul>
+
+<h2 id="数据实时显示平台">数据实时显示平台</h2>
+
+<p>一个web-base的应用，用图表实时显示采集到的数据
++ 服务器端:接受实时上传的数据，并交给前台（可以同过前台js技术进行对后台的轮询实现）【Python+Flask+js】或者websockt
++ 代理：采集数据并将数据实时上传给服务端（websocket或http请求轮询） 【用Python模拟采集器】</p>
+
+<h2 id="微信签到-活动在线照片墙">微信签到、活动在线照片墙</h2>
+
+<p>入口二维码签到，关注微信公众号。活动中大家可以向这个微信公众号发送照片，照片会实时通过web公开页面向外界同步更新显示。可以根据活动主题设计一定的显示图形。</p>
+
+<h2 id="中国历史的可视化">中国历史的可视化</h2>
+
+<p>主题：不臧否历史，只表述我的观点
+目标：通过简单的音乐盒线条动画呈现中国自盘古开天辟地至有宋一代的历史
+工具：Processing
+这个会比较复杂，比较烧时间
+通过抽象的符号、图像元素、音乐元素/声音来描述中国历史的发展。工作主要是：</p>
+
+<p>·1、理清中国历史的概括
+·2、提取每一个历史阶段的主要特点
+·3、设计元符号/图像元素，音乐/声音适配每一个历史阶段
+·4、进行技术上的实现</p>
+
+<h2 id="招聘网站数据采集及分析">招聘网站数据采集及分析</h2>
+
+<p>目标：采集IT招聘网站的招聘数据，根据不同关键字/词分析出招聘方</p>
+
+<p>neitui.me</p>
+
+<p>采用层序:公司（获取公司信息）-&gt;内推人（获取内推人信息）-&gt;内推项目（获取项目信息）</p>
+
+<ul>
+<li>需求的技能</li>
+<li>工作经验年限</li>
+<li>薪金</li>
+<li>福利
+工具：Python+Scrapy进行数据采集，web-based作为交互层、数据展现层</li>
+</ul>
+
+<h2 id="写一个markdown的解析器">写一个markdown的解析器</h2>
+
+<p>目标：将markdown文本解析成单个html文本，可自主配置css样式</p>
+
+<h2 id="微博分析系统">微博分析系统</h2>
+
+<p>已被新浪微博的API整残，天天换。这个暂且留着</p>
+
+<h2 id="sns网站及应用">SNS网站及应用</h2>
+
+<p>这是个大工程，在前面几个做完之后再好好构思</p>
+
+<h2 id="推荐系统">推荐系统</h2>
+
+<ul>
+<li>scrapy抓取信息</li>
+<li>Python分析信息</li>
+<li>Flask提供交互层</li>
+</ul>
+
+<h2 id="单页网站生成器">单页网站生成器</h2>
+
+<p>自动生成H5宣传/Landing单页</p>
+
+<h2 id="云笔记本-chrome应用">云笔记本（Chrome应用）</h2>
+
+<h2 id="局域网私人聊天-chrome应用">局域网私人聊天（Chrome应用）</h2>
+
+<h2 id="简历生成器及简历托管">简历生成器及简历托管</h2>
+
+<h2 id="人脸相似度微信服务">人脸相似度微信服务</h2>
+
+<h2 id="简单滤镜应用">简单滤镜应用</h2>
+
+<h2 id="机器学习与数据挖掘实验平台">机器学习与数据挖掘实验平台</h2>
+
+<h2 id="旅游路径规划">旅游路径规划</h2>
+
+<h2 id="图表生成器">图表生成器</h2>
+
+<h2 id="todo-list-chrome应用">ToDo List（Chrome应用）</h2>
+
+<p>可以以通用格式导出，可以自由选择云端保存</p>
+
+<h2 id="事务管理">事务管理</h2>
+
+<h2 id="健康管理">健康管理</h2>
+
+<h2 id="磁力链接搜索-种子搜索-电影推荐-音乐推荐-图书推荐">磁力链接搜索/种子搜索  电影推荐/音乐推荐/图书推荐</h2>
+
+<h2 id="统计浏览的网站-并进行可视化-提取网页分词-分类-外语调用api-chrome-插件">统计浏览的网站 并进行可视化  提取网页分词 分类 外语调用API（chrome 插件 ）</h2>
+
+<h2 id="kindle书籍管理-云">kindle书籍管理·「云</h2>
+
+<h2 id="二维码生成-管理-追踪">二维码生成、管理、追踪</h2>
+
+<h2 id="搜索聚合">搜索聚合</h2>
+
+<h2 id="通用爬虫平台-数据分析平台-数据可视化-报表平台">通用爬虫平台-数据分析平台-数据可视化/报表平台</h2>
+
+<h2 id="内容聚合发布平台">内容聚合发布平台</h2>
+
+<h2 id="视频抽取服务">视频抽取服务</h2>
+
+<h2 id="考研成绩查询平台-高考成绩查询平台">考研成绩查询平台，高考成绩查询平台</h2>
+
+<p>主要实在推送</p>
+
+<h2 id="翻墙服务">翻墙服务</h2>
+
+<h2 id="中间人攻击系统-微信公众号爬取">中间人攻击系统.微信公众号爬取</h2>
+
+<h2 id="内容资源抓取二次整合流量变现">内容资源抓取二次整合流量变现</h2>
+
+<h2 id="读书程序">读书程序</h2>
+
+<h2 id="pusher">Pusher</h2>
+
+<p>websocket 消息推送公共服务</p>
+
+<h2 id="单点登录系统-第三方登录">单点登录系统、第三方登录</h2>
+
+<p>认证和授权</p>
+
+<h2 id="nginx-api网关及web-admin">Nginx API网关及Web Admin</h2>
+
+<h2 id="操作自然语言形式化dsl-nlp">操作自然语言形式化DSL\NLP</h2>
+
+<h2 id="api-store">API Store</h2>
+
+<h2 id="系统监控">系统监控</h2>
+
+<p>可pull可push、机器管理</p>
+
+<h2 id="可视化配置工具">可视化配置工具</h2>
+
+<p>NGINX
+UWSGI
+FABRIC
+ELK
+各种秘钥
+&hellip;</p>
+
+<h2 id="code-push-server">code-push-server</h2>
+
+<h2 id="报表系统">报表系统</h2>
+
+<h2 id="站群">站群</h2>
+
+<p>小说书籍
+电影视频
+软件
+图片
+bt
+商品
+中小学试卷作文
+大学毕设
+微信QQbot
+流量变现
+自动搜集_自动处理_自动发布
+花椒直播抓取
+克隆 下载 网盘(辣鸡网盘)</p>
+
+<h2 id="制作一键安装socket代理脚本">制作一键安装socket代理脚本</h2>
+
+<h2 id="服务器信息搜集">服务器信息搜集</h2>
+
+<p>godash gopsutil
+初步信息采集
+简单远程命令(实时输出终端输出dav)</p>
+
+<h2 id="自动写诗-写对联-谱曲">自动写诗、写对联、谱曲</h2>
+
+<h2 id="邮箱签名生成器">邮箱签名生成器</h2>
+
+<h2 id="golang-mock服务-go-mock">golang mock服务——go-mock</h2>
+
+<h2 id="浏览器cookie分析工具">浏览器cookie分析工具</h2>
+
+<h2 id="汇总全国政府网站-实时政务分析">汇总全国政府网站，实时政务分析</h2>
+
+<h2 id="写一个判断文件类型的包-单文件-兼容纯python和file4命令">写一个判断文件类型的包，单文件，兼容纯Python和file4命令</h2>
+
+<h2 id="语义化日志">语义化日志</h2>
+
+<h2 id="可视化状态机">可视化状态机</h2>
+
+<h2 id="可视化正则表达式">可视化正则表达式</h2>
+
+<h2 id="自动注册">自动注册</h2>
+
+<h2 id="文档自动分类">文档自动分类</h2>
+
+<p>新词发现、打标签</p>
+
+<h2 id="农产品二十年价格变化二十年-数据可视化">农产品二十年价格变化二十年（数据可视化）</h2>
+
+<h2 id="知乎智能问答">知乎智能问答</h2>
+
+<h2 id="信用卡优惠采集">信用卡优惠采集</h2>
+
+<h2 id="搜房-搜医院-搜厕所">搜房，搜医院、搜厕所</h2>
+
+<h2 id="url自动分析">url自动分析</h2>
+
+<h2 id="采集运营商数据-公司运营数据-互联网服务安全策略">采集运营商数据 公司运营数据（互联网服务安全策略）</h2>
+
+<h2 id="x">x</h2>
+
+<p>信贷系统
+信用卡代偿
+出口退税，增值税，风控
+电商平台供应链
+保险分期</p>
+
+<p>坏账 政策监管</p>
+
+<p>现金白</p>
+
+<p>风险定价，风险控制</p>
+
+<h2 id="短网址服务">短网址服务</h2>
+
+<p>短网址服务
+包含
+日志统计
+访问分析
+可视化显示
+短网址生成，短网址解析
+一致性哈希</p>
+
+<h2 id="爬虫的用途">爬虫的用途</h2>
+
+<h2 id="权限管理框架">权限管理框架</h2>
+
+<h2 id="秒杀系统">秒杀系统</h2>
+
+<h2 id="x-1">x</h2>
+
+<p>短网址服务
+包含
+日志统计
+访问分析
+可视化显示
+短网址生成，短网址解析
+一致性哈希</p>
+
+<h2 id="动态口令-将军令">动态口令、将军令</h2>
+
+<h2 id="整理版权失效的老电影小品上传到各大平台">整理版权失效的老电影小品上传到各大平台</h2>
+
+<h2 id="各应用商店应用数据分析-下载量-评论-评分等">各应用商店应用数据分析(下载量，评论，评分等)</h2>
+
+<h2 id="监控目录-集成git-笔记云端">监控目录，集成git，笔记云端</h2>
+
+<h1 id="报警-邮件-微信-短信-sentry-eljk">报警 邮件 微信 短信 sentry eljk</h1>
+
+<h1 id="全国工商信息汇总-dadh">全国工商信息汇总 dadh</h1>
+
+<h2 id="小程序-优惠券平台">小程序 优惠券平台</h2>
+
+<h2 id="公司信息资讯-评估平台">公司信息资讯，评估平台</h2>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E5%85%B3%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%9B%B6%E7%A2%8E%E6%80%9D%E8%80%83/"> 关于机器学习的一些零碎思考 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-1-%E6%AC%A2%E8%BF%8E%E8%BF%9B%E5%85%A5%E8%BD%AF%E4%BB%B6%E6%9E%84%E5%BB%BA%E7%9A%84%E4%B8%96%E7%95%8C/"> 《代码大全》阅读笔记-1-欢迎进入软件构建的世界 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

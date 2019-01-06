@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-22-开发者测试 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#核对表-测试用例">核对表（测试用例）</a></li>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-22-%E5%BC%80%E5%8F%91%E8%80%85%E6%B5%8B%E8%AF%95/">《代码大全》阅读笔记-22-开发者测试</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<p>自动化测试：<a href="http://robotframework.org/">http://robotframework.org/</a>
+HTTP接口测试：<a href="https://segmentfault.com/a/1190000005055899">POSTMAN</a></p>
+
+<p>测试：</p>
+
+<ul>
+<li>单元测试（unit testing）</li>
+<li>组件测试 （component tetsing）</li>
+<li>集成测试 （integration testing）</li>
+<li>回归测试 （regression Testing）：重复执行以前的测试用例</li>
+<li>系统测试 （System testing）：终！</li>
+</ul>
+
+<p>两大类：</p>
+
+<ul>
+<li>黑盒</li>
+<li>白盒：开发者关注</li>
+</ul>
+
+<p>错误类型：</p>
+
+<p><img src="https://images2018.cnblogs.com/blog/673170/201804/673170-20180405185238952-227959.png" alt="" /></p>
+
+<h2 id="核对表-测试用例">核对表（测试用例）</h2>
+
+<ul>
+<li>类和子程序所对应的的每一项需求是否都有相应的测试用例</li>
+<li>类和子程序所对应的每一个设计元素是否都有相应的测试用例？</li>
+<li>每行代码是否被至少一个测试用例所测试？你是否通过计算测试到每行代码所需的最少测试用例数量来验证这一点</li>
+<li>所有已定义-已使用路径是否至少被一个测试用例测试过了？</li>
+<li>是否测试过那些不太可能正确的数据流模式，例如已定义&ndash;已定义、已定义-已退出以及已定义-已销毁？</li>
+<li>是否有一张常见错误列表，并据此编写测试用例以检测过去经常出现的错误？</li>
+<li>所有的简单便捷是否已经测试过了：最大、最小以及off-one</li>
+<li>是否测试了组合便捷——即，多个输入数据的组合导致输出数据过小或者过大</li>
+<li>测试用例是否检查了数据类型错误，例如一个薪水记账程序里的雇员数量是负数</li>
+<li>是否测试了那些中规中矩的典型数值</li>
+<li>是否测试了最小正常形式</li>
+<li>是否测试了最大正常形式</li>
+<li>是否检查了与旧数据的兼容性？以及是否对旧硬件、旧操作系统版本以及其他旧版软件的接口进行了测试</li>
+<li>测试用例是否容易手工检验？</li>
+</ul>
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>开发人员测试是完整测试策略的一个关键部分。独立测试也很重要</li>
+<li>同编码之后写测试用例相比较，编码开始之前编写测试用例,工作量和花费的时间差不多，但是后者可以缩短缺陷-侦测-调试-修正这一周期</li>
+<li>及时考虑到了各种可用的测试手段，测试仍然只是良好软件质量计划的一部分。高质量的开发方法至少和测试一样重要，这包括尽可能减少需求和设计阶段的缺陷。在检测错误方面，协同开发的成效至少与测试相当。这些方法所检测错误的类型也各不相同</li>
+<li>你可以根据各种不同的思路来产生很多测试用例，这些思路包括基础测试、数据流分析、便捷分析、错误数据类型以及正确数据类型等。你还可以通过猜测错误的方式得到更多的测试用例。</li>
+<li>错误往往集中在少数几个容易出错的类和子程序上。找出这部分代码，重新设计和编写他们。</li>
+<li><strong>测试数据本身出错的密度往往比被测试的代码还高</strong>。查找这种错误完全是浪费时间，又不能对代码有所改善，因此测试数据里面的错误更加让人烦恼。要像修改代码一样小心地开发测试用例，这样才能避免产生这种问题。</li>
+<li>自动化测试总体来说是有用的，也是进行回归测试的基础</li>
+<li>从长远来看，改善测试过程的最好办法就是将其规范化，并对其进行评估，然后用从评估中获得的经验来改善这个过程。</li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-21-%E5%8D%8F%E5%90%8C%E6%9E%84%E5%BB%BA/"> 《代码大全》阅读笔记-21-协同构建 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-23-%E8%B0%83%E8%AF%95/"> 《代码大全》阅读笔记-23-调试 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

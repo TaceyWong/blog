@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-26-代码调整技术 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#核对表-代码调整方法">核对表（代码调整方法）</a>
+<ul>
+<li><a href="#仅仅提高代码执行速度">仅仅提高代码执行速度</a></li>
+</ul></li>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-26-%E4%BB%A3%E7%A0%81%E8%B0%83%E6%95%B4%E6%8A%80%E6%9C%AF/">《代码大全》阅读笔记-26-代码调整技术</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<h2 id="核对表-代码调整方法">核对表（代码调整方法）</h2>
+
+<p>同时改善代码执行速度和规模</p>
+
+<ul>
+<li>用査询表替换复杂逻辑。</li>
+<li>合并循环</li>
+<li>使用整型变量而非浮点变量。</li>
+<li>在编译时初始化数据。</li>
+<li>使用正确的常量类型。</li>
+<li>预先计算结果。</li>
+<li>删除公共子表达式。</li>
+<li>将关键子程序代码转化为某种低级语言代码。</li>
+</ul>
+
+<h3 id="仅仅提高代码执行速度">仅仅提高代码执行速度</h3>
+
+<ul>
+<li>在知道答案后就停止执行判断。</li>
+<li>根据各种情况的出现频率子句排序。</li>
+<li>比较相似逻辑结构的性能。</li>
+<li>使用惰性求值</li>
+<li>将循环中的if判断转到外部。</li>
+<li>展开循环。</li>
+<li>将循环内部所做的工作减少到最低限度。</li>
+<li>在査找循环中使用哨兵。</li>
+<li>把执行最为频繁的循环放在嵌套循环的最里面。</li>
+<li>减轻内层循环的强度。</li>
+<li>将多维数组改为一维数组。</li>
+<li>最大限度减少数组索引。</li>
+<li>为数据类型扩充索引。</li>
+<li>对频繁使用的值进行缓存。</li>
+<li>利用代数恒等式。</li>
+<li>降低逻辑和数学表达式的强度。</li>
+<li>注意系统调用。</li>
+<li>用内联子程序重写代码。</li>
+</ul>
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>优化结果在不同的语言、编译器和环境下有很大差异。如果没有对每一次的优化进行测量，你将无法判断优化到底是帮助还是损害了这个程序。</li>
+<li>第一次优化通常不会是最好的。即使找到了效果很不错的，也不要停下扩大战果的步伐。</li>
+<li>代码调整这一话题有点类似于核能，.富有争议，甚至会让人冲动。一些人认为代码调整损害了代码可读性和可维护性，他们绝对会将其弃之不用。其他人则认为只要有适当的安全保陣，代码调整对程序是有益的。如果你决定使用上述的调整方法，请务必谨慎行事。</li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-25-%E4%BB%A3%E7%A0%81%E8%B0%83%E6%95%B4%E7%AD%96%E7%95%A5/"> 《代码大全》阅读笔记-25-代码调整策略 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-27-%E7%A8%8B%E5%BA%8F%E8%A7%84%E6%A8%A1%E5%AF%B9%E6%9E%84%E5%BB%BA%E7%9A%84%E5%BD%B1%E5%93%8D/"> 《代码大全》阅读笔记-27-程序规模对构建的影响 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

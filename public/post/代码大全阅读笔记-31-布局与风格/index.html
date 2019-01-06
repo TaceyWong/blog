@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-31-布局与风格 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#核对表-布局">核对表（布局）</a>
+<ul>
+<li><a href="#控制结够的布局">控制结够的布局</a></li>
+<li><a href="#单条语司的布局">单条语司的布局</a></li>
+<li><a href="#注释的布局">注释的布局</a></li>
+<li><a href="#子程序的布局">子程序的布局</a></li>
+<li><a href="#类-文件和程席的布局">类、文件和程席的布局</a></li>
+</ul></li>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-31-%E5%B8%83%E5%B1%80%E4%B8%8E%E9%A3%8E%E6%A0%BC/">《代码大全》阅读笔记-31-布局与风格</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<blockquote>
+<p>格式化的基本原理指出，好的布局凸现程序的逻辑结构。</p>
+</blockquote>
+
+<p>对于C++，请仔细组织源文件中内容的次序为：</p>
+
+<ol>
+<li>文件的描述性注释</li>
+<li>#include文件行</li>
+<li>在多个类里使用的常量定义（如果文件里有多个类）</li>
+<li>在多个类里使用的枚举（如果文件里有多个类）</li>
+<li>宏函数定义</li>
+<li>在多个类里使用的类型定义（如果文件里有多个类）</li>
+<li>导入的全局变量和函数</li>
+<li>导出的全局变量和函数</li>
+<li>本文件私用的变量和函数</li>
+<li>各个类，包括各个类中的常量定义、枚举以及类型定义</li>
+</ol>
+
+<h2 id="核对表-布局">核对表（布局）</h2>
+
+<p>###一般问题</p>
+
+<ul>
+<li>格式化主要是为了展现代码的逻辑结构吗？</li>
+<li>你的布局方案能统一地运用吗？</li>
+<li>你的布局方案能让代码易于维护吗？</li>
+<li>你的布局方案是否有利于代码的可读性？</li>
+</ul>
+
+<h3 id="控制结够的布局">控制结够的布局</h3>
+
+<ul>
+<li>你的代码中避免begin-end对或{}的双重缩进了吗？</li>
+<li>相邻的块之间用空行分隔了吗？</li>
+<li>对复杂表达式格式化时考虑到可读性吗？</li>
+<li>对只有一条语句的块的布局始终如一吗？</li>
+<li>语句与其他控制结构的格式化保持一致了吗？</li>
+<li>对goto语句的格式化是否让其显眼了呢？</li>
+</ul>
+
+<h3 id="单条语司的布局">单条语司的布局</h3>
+
+<ul>
+<li>为逻辑表达式、数组下标和子程序参数的可读性而使用空格了吗？</li>
+<li>不完整的语句在行末是以明显有错的方式结束吗？</li>
+<li>后续行按照标准数目缩进了吗？</li>
+<li>每行顶多只有一条语句吗？</li>
+<li>所写的每个语句都没有副作用吗？</li>
+<li>每行顶多只声明一个数据吗？</li>
+</ul>
+
+<h3 id="注释的布局">注释的布局</h3>
+
+<ul>
+<li>注释与其所注释的代码的缩进量相同吗？</li>
+<li>注释的风格便于维护吗？</li>
+</ul>
+
+<h3 id="子程序的布局">子程序的布局</h3>
+
+<ul>
+<li>你对每个子程序参数的格式化方式便于看懂、修改、注释吗？</li>
+<li>采用空行分隔子程序的各部分了吗？</li>
+</ul>
+
+<h3 id="类-文件和程席的布局">类、文件和程席的布局</h3>
+
+<ul>
+<li>多数类和文件之间是一一对应的关系吗？</li>
+<li>如果文件内有多个类，各类中的子程序按类分组了吗？各类都清楚标识了</li>
+<li>文件中的子程序用空行清楚地分开了吗？</li>
+<li>在没有更好的组织形式的场合，所有子程序都按字母顺序排列了吗？</li>
+</ul>
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>可视化布局的首要任务是指明代码的逻辑组织。评估该任务是否实现的指标包括准确性、一致性、易读性和易维护性。外表悦目比起其他指标是最不重要的。然而，如果其他指标都达到了，代码又质量好，那么布局效果看上去也会不错。</li>
+<li>VisualBasic具有纯代码块风格，而Java的传统做法就是使用纯块风格，所以若用这些语言编程，就请使用纯代码块风格。C++中，模拟纯代码块或者begin-end块边界都行之有效。</li>
+<li>结构化代码有其自身目的。始终如一地沿用某个习惯而少来创新。不能持久的布局规范只会损害可读性。</li>
+<li>布局的很多方面涉及信仰问题。应试着将客观需要和主观偏好区分开来。</li>
+<li>定出明确的指标，在此基础上冉讨论风格参数的选择。</li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-30-%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/"> 《代码大全》阅读笔记-30-编程工具 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-32-%E8%87%AA%E8%AF%B4%E6%98%8E%E4%BB%A3%E7%A0%81/"> 《代码大全》阅读笔记-32-自说明代码 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

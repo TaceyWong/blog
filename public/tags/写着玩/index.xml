@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>写着玩 on Tacey</title>
+    <link>https://taceywong.github.io/tags/%E5%86%99%E7%9D%80%E7%8E%A9/</link>
+    <description>Recent content in 写着玩 on Tacey</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Oct 2015 21:08:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://taceywong.github.io/tags/%E5%86%99%E7%9D%80%E7%8E%A9/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>有时间可以做的小玩意儿</title>
+      <link>https://taceywong.github.io/post/%E6%9C%89%E6%97%B6%E9%97%B4%E5%8F%AF%E4%BB%A5%E5%81%9A%E7%9A%84%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/</link>
+      <pubDate>Sun, 11 Oct 2015 21:08:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/post/%E6%9C%89%E6%97%B6%E9%97%B4%E5%8F%AF%E4%BB%A5%E5%81%9A%E7%9A%84%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/</guid>
+      <description>统计博客访IP,PV的服务 原理很简单，主要分为
+ 博客嵌入的js代码（充当client）：每当博客页面打开的时候，js代码就会运行。设置js代码携带博客的ID标志对服务器发出请求，获得返回值显示在博客页面中 服务器程序：响应js代码的请求，提取请求中携带的信息，分析出博客ID、IP地址并对更新数据库表对信息进行保存，将相应的信息返回。  统计博客访问地图 原理和①相同，只不过要做IP-&amp;gt;实际地址转换，并设置页面显示布局。 这个也可以作为另外一个服务：大概率定位访客的地理位置，推送周边广告
+博客关联推荐 信息传递原理和前面的一样。复杂的是要定期抓取博客的文章进行关联分析，存储起来以备js请求时返回关联推荐结果。
+中国大陆内火车一天内的流动（数据可视化） 主要的一个非技术难点——从哪里获得完整的火车运行时刻表
+ 获得火车时刻信息 获得火车运行路线与实际地图的坐标映射 数据可视化就是个简单的技术活  数据实时显示平台 一个web-base的应用，用图表实时显示采集到的数据 + 服务器端:接受实时上传的数据，并交给前台（可以同过前台js技术进行对后台的轮询实现）【Python+Flask+js】或者websockt + 代理：采集数据并将数据实时上传给服务端（websocket或http请求轮询） 【用Python模拟采集器】
+微信签到、活动在线照片墙 入口二维码签到，关注微信公众号。活动中大家可以向这个微信公众号发送照片，照片会实时通过web公开页面向外界同步更新显示。可以根据活动主题设计一定的显示图形。
+中国历史的可视化 主题：不臧否历史，只表述我的观点 目标：通过简单的音乐盒线条动画呈现中国自盘古开天辟地至有宋一代的历史 工具：Processing 这个会比较复杂，比较烧时间 通过抽象的符号、图像元素、音乐元素/声音来描述中国历史的发展。工作主要是：
+·1、理清中国历史的概括 ·2、提取每一个历史阶段的主要特点 ·3、设计元符号/图像元素，音乐/声音适配每一个历史阶段 ·4、进行技术上的实现
+招聘网站数据采集及分析 目标：采集IT招聘网站的招聘数据，根据不同关键字/词分析出招聘方
+neitui.me
+采用层序:公司（获取公司信息）-&amp;gt;内推人（获取内推人信息）-&amp;gt;内推项目（获取项目信息）
+ 需求的技能 工作经验年限 薪金 福利 工具：Python+Scrapy进行数据采集，web-based作为交互层、数据展现层  写一个markdown的解析器 目标：将markdown文本解析成单个html文本，可自主配置css样式
+微博分析系统 已被新浪微博的API整残，天天换。这个暂且留着
+SNS网站及应用 这是个大工程，在前面几个做完之后再好好构思
+推荐系统  scrapy抓取信息 Python分析信息 Flask提供交互层  单页网站生成器 自动生成H5宣传/Landing单页
+云笔记本（Chrome应用） 局域网私人聊天（Chrome应用） 简历生成器及简历托管 人脸相似度微信服务 简单滤镜应用 机器学习与数据挖掘实验平台 旅游路径规划 图表生成器 ToDo List（Chrome应用） 可以以通用格式导出，可以自由选择云端保存</description>
+    </item>
+    
+  </channel>
+</rss>

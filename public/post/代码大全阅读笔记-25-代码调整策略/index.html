@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-25-代码调整策略 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#核对表-代码调整策略">核对表（代码调整策略）</a>
+<ul>
+<li><a href="#程序整体性能">程序整体性能</a></li>
+<li><a href="#代码调整方法">代码调整方法</a></li>
+</ul></li>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-25-%E4%BB%A3%E7%A0%81%E8%B0%83%E6%95%B4%E7%AD%96%E7%95%A5/">《代码大全》阅读笔记-25-代码调整策略</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<blockquote>
+<p>在讨论编程的时候，没有“可能”一词的位置。——Tacey</p>
+</blockquote>
+
+<p>如果对代码调整能否有助于提高某个程序的性能心存疑虑，按照以下的步
+骤去做：</p>
+
+<ol>
+<li>用设计良好的代码来开发软件，从而使程序易于理解和修改。</li>
+<li>如果程序性能很差。
+
+<ul>
+<li>a.保存代码的可运行版本，这样你才能回到“最近的已知正常状态”；</li>
+<li>b.对系统进行分析测量，找出热点；</li>
+<li>c.判断性能拙劣是否源于设计、数据类型或算法上的缺陷，确定是否应该做代码调整，如果不是，请跳回到第一步；</li>
+<li>d.对步骤c屮所确定的瓶颈代码进行调整；</li>
+<li>e.每次调整后都对性能提升进行测量；</li>
+<li>f.如果调整没有改进代码的性能，就恢复到步骤a保存的代码（通常而言,超过一半的调整尝试都只能稍微改善性能其至造成性能恶化）。</li>
+</ul></li>
+<li>重复步骤2。</li>
+</ol>
+
+<h2 id="核对表-代码调整策略">核对表（代码调整策略）</h2>
+
+<h3 id="程序整体性能">程序整体性能</h3>
+
+<ul>
+<li>你是否考虑通过修改需求来提高性能</li>
+<li>你是否考虑通过修改程序的设计来提高性能？</li>
+<li>你是否考虑通过修改类的设计来提高性能</li>
+<li>你是否考虑过减少程序同操作系统的交互从而提高性能？</li>
+<li>是否考虑过避免I/O操作以提高性能？</li>
+<li>是否考虑使用编译型语言替代解释型语言以提高性能？</li>
+<li>是否考虑过使用编译器优化选项来提髙性能？</li>
+<li>是否考虑过使用不同的硬件來提高性能？</li>
+<li>是否仅仅将代码调整看做是解决问题的最后一招？</li>
+</ul>
+
+<h3 id="代码调整方法">代码调整方法</h3>
+
+<ul>
+<li>在开始调整代码之前，程序是完全正确的么？</li>
+<li>在调整之前是否测量过性能瓶颈在什么地方？</li>
+<li>是否记录了每一次修改所产生的效果？</li>
+<li>如果没有带来预期的性能提高，你是否放弃了所做的代码调整改变？</li>
+<li>你是否对每一个性能瓶颈进行不止一次的修改尝试一一也就是说，你是在反复进行代码调整么？</li>
+</ul>
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>性能只是软件整体质量的一个方面，通常不是最重要的。精细的代码调整也只是实现整体性能的一种方法，通常也不是决定性的。相对于代码本身的效率而言，程序的架构、细节设计以及数据结构和算法选对程序的运行速度和资源占用的影响通常会更人。</li>
+<li>定量测量是实现性能最优化的关键。定量测最需要找出能真正决定程序性能的部分，在修改之后，应当通过重复测量来明确修改是提高还是降低了软件的性能。</li>
+<li>绝大多数的程序都有那么一小部分代码耗费了绝大部分的运行时间。如果没有测量，你不会知道是哪一部分代码。</li>
+<li>代码调整需要反复尝试，这样才能获得理想的性能提髙。</li>
+<li>为性能优化工作做好准备的最佳方式就是在最初阶段编写清晰的代码，从而使代码在后续丄作中易于理解和修改。</li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-24-%E9%87%8D%E6%9E%84/"> 《代码大全》阅读笔记-24-重构 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-26-%E4%BB%A3%E7%A0%81%E8%B0%83%E6%95%B4%E6%8A%80%E6%9C%AF/"> 《代码大全》阅读笔记-26-代码调整技术 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

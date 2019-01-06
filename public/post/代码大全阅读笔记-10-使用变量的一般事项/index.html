@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-10-使用变量的一般事项 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#核对表-使用数据的一般事项">核对表（使用数据的一般事项）</a></li>
+<li><a href="#要点">要点</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-10-%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E7%9A%84%E4%B8%80%E8%88%AC%E4%BA%8B%E9%A1%B9/">《代码大全》阅读笔记-10-使用变量的一般事项</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<blockquote>
+<p>利用构建活动来填补需求和架构中存在的细小间隙是一种行之有效的做法;但把蓝图设计得精细到已经能完全展现出所有的细节则实在是一种低效的方法</p>
+
+<p>尽量缩小变量的作用域，尽量缩短变量的生存时间 ——Tacey</p>
+</blockquote>
+
+<p>基础数据类型：
+<img src="https://images2018.cnblogs.com/blog/673170/201804/673170-20180404144418303-55575104.png" alt="" /></p>
+
+<h4 id="核对表-使用数据的一般事项">核对表（使用数据的一般事项）</h4>
+
+<p>初始化变量</p>
+
+<ul>
+<li>每一个子程序都检查其输入参数的正确性吗？</li>
+<li>变量声明位置靠近变量第一次使用的位置吗？</li>
+<li>尽可能地在声明变量的同时初始化变量吗？</li>
+<li>如果无法同时声明和初始化变量，有没有在靠近第一次使用变量的位置声明变量？</li>
+<li>计数器和累加器经过了适当的初始化了吗？如果需要再一次使用，之前重新初始化了吗？</li>
+<li>适当的重新初始化”需要重复执行的代码里的变量“了吗？</li>
+<li>代码在通过编译器编译的时候是不是没有警告信息？（你启用了所有可用的警告选项了吗？）</li>
+<li>如果你用的语言允许隐士声明，你为此可能引发的问题做好补偿措施了吗？</li>
+<li>一次性初始化所有具名常量：可用可执行代码初始化之</li>
+</ul>
+
+<p>使用数据的其他事项</p>
+
+<ul>
+<li>如果可能，所有变量都被定义为具有最小的作用域了吗？</li>
+<li>各变量的引用点都尽可能集中在一起了吗？对同一变量的两次相邻引用，或者变量的整个生命周期都这样做了吗？</li>
+<li>控制结构符合数据类型吗？</li>
+<li>所有生命的变量都用到了吗？</li>
+<li>变量都在合适的时间绑定了吗？——也就是说，你有意识地在晚期绑定所带来的灵活性和增加的复杂度之间做出平衡了吗？</li>
+<li>每个变量都有且仅有一项用途吗？</li>
+<li>每个变量的含义都很明确且没有隐含含义吗？</li>
+</ul>
+
+<h4 id="要点">要点</h4>
+
+<ul>
+<li>数据初始化过程很容易出错，使用上面初始化方法来避免由于非预期的初始化值而造成的错误。</li>
+<li>最小化每个变量的作用域。把同一变量的引用点集中在一起。把变量限定在子程序或类的范围之内。避免使用全局数据。</li>
+<li>把使用相同变量的语句尽可能集中在一起</li>
+<li>早起绑定会减低灵活性，但有助于减小复杂度。晚期绑定可以增加灵活性，同时增加复杂度</li>
+<li><strong>把每个变量用于唯一用途</strong></li>
+</ul>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-9-%E4%BC%AA%E4%BB%A3%E7%A0%81%E7%BC%96%E7%A8%8B%E8%BF%87%E7%A8%8B/"> 《代码大全》阅读笔记-9-防御式编程 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-11-%E5%8F%98%E9%87%8F%E5%90%8D%E7%9A%84%E5%8A%9B%E9%87%8F/"> 《代码大全》阅读笔记-11-变量名的力量 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>

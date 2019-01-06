@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Tacey</title>
+    <link>https://taceywong.github.io/categories/javascript/</link>
+    <description>Recent content in Javascript on Tacey</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Sep 2018 13:35:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://taceywong.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Javascript函数式编程</title>
+      <link>https://taceywong.github.io/post/javascript-functional/</link>
+      <pubDate>Sat, 22 Sep 2018 13:35:28 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/post/javascript-functional/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript实现类的几种方法</title>
+      <link>https://taceywong.github.io/post/javascript-class/</link>
+      <pubDate>Tue, 18 Sep 2018 14:01:11 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/post/javascript-class/</guid>
+      <description>参考：阮一峰-Javascript定义类（class）的三种方法
+编写和维护如此复杂的代码，必须使用模块化策略。目前，业界的主流做法是采用&amp;rdquo;面向对象编程&amp;rdquo;。因此，Javascript如何实现面向对象编程，就成了一个热门课题。麻烦的是，Javascipt语法不支持&amp;rdquo;类&amp;rdquo;（class）（ES6已经引入class关键字），导致传统的面向对象编程方法无法直接使用。程序员们做了很多探索，研究如何用Javascript模拟&amp;rdquo;类&amp;rdquo;。本文总结了Javascript定义&amp;rdquo;类&amp;rdquo;的几种方法。
+一、构造函数法 使用构造函数模拟类，在其内部用this关键字只带实例对象。
+function Car(){ this.brand = &amp;quot;Tesla&amp;quot;; }  生成实例的时候，使用new关键字。
+var one_car = new Car(); console.log(one_car);  类的属性和方法，可以定义在构造函数的prototype对象之上。
+Car.prototype.makeSound = function(){ console.log(&amp;quot;滴滴&amp;quot;); }  二、Object.create()方法 为了解决&amp;rdquo;构造函数法&amp;rdquo;的缺点，更方便地生成对象，Javascript的国际标准ECMAScript第五版（目前通行的是第三版），提出了一个新的方法Object.create()。
+用这个方法 “类”就是一个对象，不是函数。
+var Car = { brand : &amp;quot;Tesla&amp;quot;, makeSound : function(){console.log(&amp;quot;滴滴&amp;quot;)} }  然后直接用Object.create()生成实例，不需要用到new
+var one_car = Object.create(cat); console.log(one_car.brand);//Tesla one_car.makeSound();//滴滴  如果遇到浏览器不支持Object.create()可以自己模拟实现
+if (!Object.create){ Object.create = function(o){ function F(){} F.prototype = o; return new F(); }; }  这种方法比“构造函数方法“简单，但是不能实现私有属性和私有方法，实例对象之间也不能共享数据，对”类“的模拟不够全面。
+三、极简主义法 荷兰程序员Gabor de Mooij提出了一种比Object.</description>
+    </item>
+    
+    <item>
+      <title>Javascript面向对象编程</title>
+      <link>https://taceywong.github.io/post/javascript-oop/</link>
+      <pubDate>Sat, 15 Sep 2018 13:35:28 +0800</pubDate>
+      
+      <guid>https://taceywong.github.io/post/javascript-oop/</guid>
+      <description> 前言 每当需要些JS代码的时候都会想到阮籍的一句话： &amp;gt; 时无英雄，竖子成名
+有一段时间实在是想不到为什么是Javascript，就像疑惑上帝为什么会选择耶路撒冷一样。后来懵懵懂懂的认识到Javascript的简单语法和几乎无限的自由度（逻辑功能实现上）让其在早期迅速占领了大片疆域，当时间线走到二十一世纪之后的十几个年头，传统的“精英型语言”开发者回首发现浏览器天然跨平台的优势以及HTTP(S)无限自由的链接各种系统的时候，Javascript已经成了既定事实。虽然跨平台方案诸侯遍地，也只有Javascript能够在其中自由穿梭，默认支持。
+时也命也！
+上帝选择耶路撒冷也许是因为偏爱，但对Javascript的选择也仅仅是历史时间线的选择。Javascript的自由度为其自身开疆拓土，成就了Javascript如今一家独大的地位，但塞翁福祸岂可谬哉？Javascript语法简单，所以要实现复杂的功能就必须大量依赖宿主环境的各种外部API，而且外部API经常不受Javascript规范所约束；Javascript的无类型对象让人随便就能写几行代码，但是质量的保证惨不忍睹；Javascript基于原型链的系统自由度突破天际，也造成了纷繁复杂，上下不一的各种问题。
+就以我目前对其的认知，发现Javascript有如下缺点：
+ 重度依赖object这种数据类型，可对这种数据类型的规则限定却是各种反人类 作用域及生存周期的限定是个谜 过多依赖外部环境 语义上不一致（与Python相比，Javascript的各种语义就像是个随意的玩具）  Javascript的难点与核心在Object（静）与异步（动），要充分发挥Javascript语言的功能必须弄清楚这两点。
+http://bonsaiden.github.io/JavaScript-Garden/zh/ http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html
+封装 http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html
+继承 ES6 面向对象 </description>
+    </item>
+    
+  </channel>
+</rss>

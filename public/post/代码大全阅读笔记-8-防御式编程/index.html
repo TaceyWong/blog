@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 《代码大全》阅读笔记-8-防御式编程 &middot; Tacey </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.47-DEV" />
+
+
+<link rel="stylesheet" href="https://taceywong.github.io/css/vec.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="Tacey" />
+
+</head>
+
+<body>
+  <header>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="https://taceywong.github.io/">/home/tacey</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories">~/categories:分类</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags">~/tags:标签</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/post">~/post:博文</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/resume">~/resume:简历</a>
+      </li>
+      
+  
+      <li class="pull-right"><a href=""><i class="fas fa-rss"></i></a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="content toc">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#要点">要点</a></li>
+<li><a href="#核对表-防御式编程">核对表 （防御式编程）</a>
+<ul>
+<li><a href="#一般事宜">一般事宜</a></li>
+<li><a href="#异常">异常</a></li>
+<li><a href="#安全事宜">安全事宜</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    
+    <section class="post">
+      <h1 class="post-title"><a href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-8-%E9%98%B2%E5%BE%A1%E5%BC%8F%E7%BC%96%E7%A8%8B/">《代码大全》阅读笔记-8-防御式编程</a></h1>
+      <span class="post-date">Apr 3, 2016 </span>
+      <div class="post-content">
+        
+
+<h2 id="要点">要点</h2>
+
+<ul>
+<li>最终产品代码中对错误的处理方式要比“垃圾进，垃圾出”复杂的多。</li>
+<li>防御式编程技术可以让错误更容易发现、更容易修改，并减少错误对产品代码的破坏。</li>
+<li>断言可以帮助人尽早发现错误，尤其是在大型系统和高可靠性的系统中，以及快速变化的代码中。</li>
+<li>关于如何处理错误输入的决策是一项关键的错误处理决策，也是一项关键的高层设计决策。</li>
+<li>异常提供了一种与代码正常流程角度不同错误处理手段。如果留心使用异常，它可以称为程序员们知识工具箱中的一项有益补充，同时也应该在异常和其他错误处理手段之间进行权衡比较。</li>
+<li>针对产品代码的限制并不适用于开发中的软件。你可以利用这一优势在开发中添加有助于更快地排查错误的代码。</li>
+</ul>
+
+<h2 id="核对表-防御式编程">核对表 （防御式编程）</h2>
+
+<h3 id="一般事宜">一般事宜</h3>
+
+<ul>
+<li>子程序是否保护自己免遭有害输入数据的破坏？</li>
+<li>你用断言来说明编程假定吗？其中包括了前条件和后条件吗？</li>
+<li>断言是否知识用来说明从不应该发生的情况？</li>
+<li>你是否在架构或高层设计中规定了一组特定的错误处理技术？</li>
+<li>你是否在架构或高层设计中规定了是让错误处理更倾向于健壮性还是正确性？</li>
+<li>你是否建立了隔栏来遏制错误可能造成的破坏？是否减少了其他需要关注错误处理的代码的数量？</li>
+<li>代码中用到的辅助调试的代码了吗？</li>
+<li>如果需要启用或禁用添加的辅助助手的话，是否无须打动干戈？</li>
+<li>在防御式编程时引入的代码量是否适宜——既不过多，也不过少？</li>
+<li>你在开发阶段是否采用了进攻式编程来使错误难以被忽视？</li>
+</ul>
+
+<h3 id="异常">异常</h3>
+
+<ul>
+<li>你在项目中定义了一套标准化的异常处理方案吗？</li>
+<li>是否考虑过异常之外的其他替代方案？</li>
+<li>如果可能的话，是否在局部处理了错误而不是把它当成一个异常抛到外部？</li>
+<li>代码中是否避免了在构造函数和析构函数中抛出异常？</li>
+<li>所有的异常是否都与抛出它们的子程序处于同一个抽象层次上？</li>
+<li>每个异常是否都包含了关于异常发生的所有背景信息？</li>
+<li>代码中是否没有使用空的catch语句？（或者如果使用空的catch语句确实很合适，那么明确说明了吗？）</li>
+</ul>
+
+<h3 id="安全事宜">安全事宜</h3>
+
+<ul>
+<li>检查有害输入数据的代码是否也检查了故意的缓冲区溢出，SQL注入、HTML注入、整数溢出以及其他恶意输入数据？</li>
+<li>是否检查了所有的错误返回码？</li>
+<li>是否捕获了所有异常？</li>
+<li>出错消息中是否避免出现有助于攻击者攻入系统所需的信息</li>
+</ul>
+
+<p><strong>安全、断言、异常</strong></p>
+
+      </div>
+    </section>
+    
+    <section class="pagination clearfix">
+      
+      <a class="btn previous " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-7-%E9%AB%98%E8%B4%A8%E9%87%8F%E7%9A%84%E5%AD%90%E7%A8%8B%E5%BA%8F/"> 《代码大全》阅读笔记-7-高质量的子程序 </a> 
+       
+      
+      <a class="btn next " href="https://taceywong.github.io/post/%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0-9-%E4%BC%AA%E4%BB%A3%E7%A0%81%E7%BC%96%E7%A8%8B%E8%BF%87%E7%A8%8B/"> 《代码大全》阅读笔记-9-防御式编程 </a> 
+      
+    </section>
+    
+    
+  </div>
+  
+  <footer>
+  <div class="footer-info">
+    <p>
+      <a href="mailto:xinyong.wang@qq.com?subject="><i class="far fa-envelope"></i> xinyong.wang@qq.com </a>
+      {
+        <a href="https://gohugo.io/" title="Hugo :: A fast and modern static website engine">Hugo 0.47-DEV</a>,
+        <a href="https://github.com/IvanChou/yii.im" title="vec">Vec</a> 
+      }
+      {<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/" title="CC BY-NC-ND 3.0">CC BY-NC-ND 3.0</a>}
+    </p>
+  </div>
+</footer>
+
+  
+  <script src="https://taceywong.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+
+</body>
+
+</html>
